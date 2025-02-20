@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['userid'])) {
+    header("Location: script/logout.php");
+    exit();
+}
+?>
 <input type="checkbox" name="mobile-nav" id="mobile-nav" class="gaadiexp-check" onchange="this.blur()">
 <label for="mobile-nav" class="gaadiexp white" tabindex="0"><span></span></label>
 <nav role="navigation" class="header-nav" >
