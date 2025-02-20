@@ -1,8 +1,11 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include "database/conn.php";
 
-if (!isset($_SESSION['userid']) || !isset($_SESSION['role'])) {
+if (!isset($_SESSION['userid']) || !isset($_SESSION['role']))
+{
     // Redirect to the login page
     header("Location: index.php"); // Adjust the path if needed
     exit();
