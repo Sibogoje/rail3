@@ -1,0 +1,7 @@
+[25-May-2022 18:53:59 UTC] PHP Warning:  Undefined variable $conn in /home/u747325399/domains/liquag.com/public_html/railway/backend/seyv.php on line 31
+[25-May-2022 18:53:59 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/u747325399/domains/liquag.com/public_html/railway/backend/seyv.php:31
+Stack trace:
+#0 /home/u747325399/domains/liquag.com/public_html/railway/backend/seyv.php(31): mysqli_query()
+#1 {main}
+  thrown in /home/u747325399/domains/liquag.com/public_html/railway/backend/seyv.php on line 31
+[25-May-2022 18:59:23 UTC] PHP Parse error:  Unmatched '}' in /home/u747325399/domains/liquag.com/public_html/railway/backend/seyv.php on line 79

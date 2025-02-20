@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Railway Invoice</title>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	
+
+   <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<style>
+@media print {
+
+  html, body {
+    height:100%; 
+    margin: 0 !important; 
+    padding: 0 !important;
+    overflow: hidden;
+  }
+
+}
+</style>
+
+</head>
+
+<body style="width: 793px;height: 1122.520px;">
+
+    
+
+<div class="container" style="width: 100%">
+
+<img class="img-responsive" style="width: 100%;margin-top: -39px;margin-bottom: 2px;" src="assets/img/invoice-removebg-previewg.png">
+    <div class="table" style="margin-right: 10px;margin-left: 10px;font-size: 2px;height: 165px;">
+        <table class="table">
+            <thead>
+                <tr></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 20%;border-bottom-width: 0px;border-left-width: 3px;padding-left: 4px;font-weight: bold;text-align: left;font-size: 11px;padding-top: 0px;">Client ID</td>
+                    <td style="width: 40%;border-right-width: 3px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding: 5px;padding-left: 4px;font-weight: bold;font-size: 11px;padding-top: 0px;">Region</td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding-left: 4px;font-size: 11px;padding-top: 0px;"></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;border-bottom-width: 0px;border-left-width: 3px;padding-left: 4px;font-weight: bold;text-align: left;font-size: 11px;padding-top: 0px;">Client Name</td>
+                    <td style="width: 40%;border-right-width: 3px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding: 5px;padding-left: 4px;font-weight: bold;font-size: 11px;padding-top: 0px;">Water Meter</td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding-left: 4px;font-size: 11px;padding-top: 0px;"></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;border-bottom-width: 0px;border-left-width: 3px;padding-left: 4px;font-weight: bold;text-align: left;font-size: 11px;padding-top: 0px;">House Number</td>
+                    <td style="width: 40%;border-right-width: 3px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding: 5px;padding-left: 4px;font-weight: bold;font-size: 11px;padding-top: 0px;">Electricity Meter</td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding-left: 4px;font-size: 11px;padding-top: 0px;"></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;border-bottom-width: 0px;border-left-width: 3px;padding-left: 4px;font-weight: bold;text-align: left;font-size: 11px;padding-top: 0px;">Phone</td>
+                    <td style="width: 40%;border-right-width: 3px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding: 5px;padding-left: 4px;font-weight: bold;font-size: 11px;padding-top: 0px;">W/Order No</td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding-left: 4px;font-size: 11px;padding-top: 0px;"></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;border-bottom-width: 0px;border-left-width: 3px;padding-left: 4px;font-weight: bold;text-align: left;font-size: 11px;padding-top: 0px;">Email</td>
+                    <td style="width: 40%;border-right-width: 3px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding: 5px;padding-left: 4px;font-weight: bold;font-size: 11px;padding-top: 0px;">S/Order No</td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding-left: 4px;font-size: 11px;padding-top: 0px;"></td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;border-bottom-width: 0px;border-left-width: 3px;padding-left: 4px;font-weight: bold;text-align: left;font-size: 11px;padding-top: 0px;">Address</td>
+                    <td style="width: 40%;border-right-width: 3px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding: 5px;padding-left: 4px;font-weight: bold;font-size: 11px;padding-top: 0px;">FOB</td>
+                    <td style="width: 20%;border-bottom-width: 0px;padding-left: 4px;font-size: 11px;padding-top: 0px;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr style="font-weight: bold;height: 2px;margin-top: -15px;margin-bottom: -2px;"><label class="form-label text-end d-inline d-xxl-flex justify-content-xxl-end" style="--bs-body-font-weight: bold;font-weight: bold;text-align: left;margin-right: 21px;margin-bottom: 0px;">Date:&nbsp;</label>
+    <hr style="font-weight: bold;height: 3px;margin-top: 0px;">
+    <div class="table" style="margin-left: 2px;margin-right: 3px;height: 87px;">
+        <table class="table">
+            <thead>
+                <tr></tr>
+            </thead>
+            <tbody style="width: 100%;">
+                <tr>
+                    <td style="width: 16.6%;font-weight: bold;border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">House No</td>
+                    <td style="width: 16.6%;font-weight: bold;border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Station</td>
+                    <td style="width: 16.6%;font-weight: bold;border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Bill Month</td>
+                    <td style="width: 16.6%;font-weight: bold;border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Payment Due Date</td>
+                    <td style="width: 16.6%;font-weight: bold;border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Start Date</td>
+                    <td style="width: 16.6%;font-weight: bold;border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">End Date</td>
+                </tr>
+                <tr>
+                    <td style="border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">.</td>
+                    <td style="border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="border-top-width: 1px;border-top-color: var(--bs-table-striped-color);border-right-width: 1px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 1px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 1px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table" style="margin-left: 10px;margin-right: 10px;height: 105.5px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center" colspan="7" style="font-size: 11px;padding-top: 0px;padding-left: 4px;">Description of Readings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="font-weight: bold;width: 14.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Quantity</td>
+                    <td style="font-weight: bold;width: 14.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Actual Units</td>
+                    <td style="font-weight: bold;width: 14.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Previous Units</td>
+                    <td style="font-weight: bold;width: 14.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Calculation</td>
+                    <td style="font-weight: bold;width: 14.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Tarrif</td>
+                    <td style="font-weight: bold;width: 14.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Unit Price</td>
+                    <td style="font-weight: bold;width: 14.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Total</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 14.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding: 1px;padding-top: 0px;padding-left: 4px;" colspan="7">Water</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive" style="margin-right: 10px;margin-left: 10px;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 5.14%;font-size: 11px;padding-top: 0px;padding-left: 4px;">1</th>
+                    <th style="width: 5.14%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">0</th>
+                    <th style="width: 12%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;" colspan="2">Basic Charge per Month</th>
+                    <th style="width: 2.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;" colspan="1"></th>
+                    <th style="width: 8.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">0</th>
+                    <th style="width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">82.62</th>
+                    <th style="width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">82.62</th>
+                    <th style="width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">E 82.62</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 5.14%;border-bottom-width: 0px;border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 5.14%;border-bottom-width: 0px;border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 12%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;" colspan="2">.</td>
+                    <td style="width: 7.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 8.28%;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 0px;border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 9.5%;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 0px;border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 9.5%;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 0px;border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 9.5%;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 0px;border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table" style="margin-left: 10px;margin-right: 10px;margin-bottom: -13px;">
+        <table class="table">
+            <thead>
+                <tr></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 2px;border-right-width: 4px;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 2px;border-right-width: 4px;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">B1(1-10)</td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">10</td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">71.21</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">71.21</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">E&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 2px;border-right-width: 4px;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 2px;border-right-width: 4px;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">B2(11-15)</td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">5</td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">18.55</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">18.55</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">E&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 2px;border-right-width: 4px;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 2px;border-right-width: 4px;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">B3(16-50)</td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">34</td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">27.93</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">27.93</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">E&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 2px;border-right-width: 4px;border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 2px;border-right-width: 4px;border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">B1(&gt;50)</td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">&gt;50</td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">31.87</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">31.87</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 2px;border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">E&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"><strong>Electricity</strong><br></td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Subtotal</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 2px;border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;font-size: 11px;padding-top: 0px;padding-left: 4px;">E&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-top-width: 3px;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 3px;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 3px;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 0px;border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 0px;border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 3px;border-top-color: var(--bs-table-striped-color);border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 3px;border-top-color: var(--bs-table-striped-color);border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">1</td>
+                    <td style="font-weight: bold;width: 12%;border-top-width: 3px;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Minimum Charge</td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 3px;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 3px;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">100</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 3px;border-top-color: var(--bs-table-striped-color);border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">180</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 3px;border-top-color: var(--bs-table-striped-color);border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">180.00</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 0px;border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;">E 180.00</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 3px;border-top-color: var(--bs-table-striped-color);border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">0</td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 3px;border-top-color: var(--bs-table-striped-color);border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-top-width: 0px;border-right-width: 0px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 3px;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 3px;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 3px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 0px;border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-top-width: 0px;border-right-width: 0px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 0px;border-right-width: 0px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 0px;border-right-width: 0px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 0px;border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-right-width: 0px;border-bottom-width: 0px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 3px;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);padding: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Payment<br><br></td>
+                    <td style="font-weight: bold;width: 5.28%;border-top-width: 3px;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Details</td>
+                    <td style="width: 12%;border-top-width: 3px;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Internet Transfer</td>
+                    <td style="font-weight: bold;width: 7.28%;border-top-width: 3px;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 8.28%;border-top-width: 3px;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Subtotal</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">E</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Name</td>
+                    <td style="font-weight: bold;width: 5.28%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="width: 12%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;">Eswatini Railway</td>
+                    <td style="font-weight: bold;width: 7.28%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 8.28%;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Shipping</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">CC#</td>
+                    <td style="font-weight: bold;width: 5.28%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 7.28%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 8.28%;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">VAT</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;width: 5.28%;border-bottom-width: 0px;border-left-width: 3px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Expires</td>
+                    <td style="font-weight: bold;width: 5.28%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 12%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 7.28%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 8.28%;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">Sales Tax</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                </tr>
+                <tr style="margin-bottom: -18px;">
+                    <td style="font-weight: bold;width: 5.28%;font-size: 11px;padding-top: 0px;padding-left: 4px;border-bottom-width: 3px;border-bottom-color: var(--bs-gray-900);border-left-width: 3px;border-left-color: var(--bs-table-striped-color);"></td>
+                    <td style="font-weight: bold;width: 5.28%;font-size: 11px;padding-top: 0px;padding-left: 4px;border-bottom-width: 3px;border-bottom-color: var(--bs-gray-900);"></td>
+                    <td style="font-weight: bold;width: 12%;border-right-width: 0px;border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 7.28%;border-right-width: 0px;border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 8.28%;border-right-width: 3px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 3px;border-bottom-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-right-width: 0px;border-bottom-width: 0px;font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;">TOTAL</td>
+                    <td style="font-weight: bold;width: 9.5%;border-top-width: 2px;border-top-color: var(--bs-table-striped-color);border-right-width: 2px;border-right-color: var(--bs-table-striped-color);border-bottom-width: 2px;border-bottom-color: var(--bs-table-striped-color);border-left-width: 2px;border-left-color: var(--bs-table-striped-color);font-size: 11px;padding-top: 0px;padding-left: 4px;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+	</div>
+ 
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
