@@ -67,7 +67,7 @@
 <body>
   <div class="container">
     <div class="login-container">
-      <h2>Admin Login</h2>
+      <h2>ZenMark Invoicing System</h2>
       <div class="progress-container">
         <div class="progress">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
