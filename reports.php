@@ -40,11 +40,18 @@ include('database/conn.php');
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <style>
-
-</style>
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-buttonh {
@@ -174,6 +181,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 }
 .button5 {border-radius: 12px;}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 </style>
 </head>
 <body>
@@ -465,7 +482,7 @@ function closeForm() {
 <div class="container" style="width: 100%;">  
     <h3 class="text-center">Tenant Bills Reports</h3>  
     <br />  
-    <div class="table-responsive" style="padding: 70%;">  
+    <div class="table-responsive">  
         <table id="employee_data" class="table table-striped table-bordered text-center">  
             <thead>  
                 <tr>  
