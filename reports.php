@@ -197,10 +197,6 @@ body {
     include "header.php";
 ?>
 
-<div class="header">
-    <h1>ZenMark Invoicing System</h1>
-</div>
-
 <div class="main-content">
     <div class="container">
         <div style="margin-top: 72px;" class="form-inline">
