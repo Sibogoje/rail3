@@ -703,10 +703,13 @@ $months = [
 
 foreach ($months as $month) {
     // Fetch the invoice number and sum of water_charge and sewage_charge for the current month and year
-    $result = mysqli_query($conn, "SELECT invoicenumber, SUM(water_charge + sewage_charge) AS total_due FROM invoices WHERE house_code='$tnt' AND month='$month' AND year='$currentYear' AND id NOT LIKE '%-Wat%' AND id NOT LIKE '%-Elec%' GROUP BY invoicenumber");
-    $row = mysqli_fetch_assoc($result);
-    $invoiceNumber = $row['invoicenumber'] ?? '';
-    $totalDue = $row['total_due'] ?? 0;
+    $result = mysqli_query($conn, "SELECT invoicenumber, water_charge, sewage_charge FROM invoices WHERE house_code='$tnt' AND month='$month' AND year='$currentYear' AND id NOT LIKE '%-Wat%' AND id NOT LIKE '%-Elec%'");
+    $invoiceNumber = '';
+    $totalDue = 0;
+    while ($row = mysqli_fetch_assoc($result)) {
+        $invoiceNumber = $row['invoicenumber'];
+        $totalDue += $row['water_charge'] + $row['sewage_charge'];
+    }
 
     $html .= '<tr>
                 <td>' . $month . '</td>
