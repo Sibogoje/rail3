@@ -9,7 +9,7 @@ if (!empty($_POST["prints"])) {
 	$month=$_POST['mnm'];
 	
 
-$result1 = mysqli_query($conn,"SELECT * FROM `invoices` WHERE `house_code`='$tnt' AND `month`='$month' AND `id`NOT LIKE '%-Wat%' AND `id`NOT LIKE '%-Elec%'    ");
+$result1 = mysqli_query($conn,"SELECT * FROM `invoices` WHERE `house_code`='$tnt' AND `month`='$month' AND `id` NOT LIKE '%-Wat%' AND `id`NOT LIKE '%-Elec%'    ");
 
 
 
@@ -681,7 +681,8 @@ $pdf->AddPage();
 
 // Set font for the heading
 $pdf->SetFont('helvetica', 'B', 14);
-$pdf->Cell(0, 10, 'Bill to Date '.$date('YYYY'), 0, 1, 'C');
+$currentYear = date('Y');
+$pdf->Cell(0, 10, 'Bill to Date ' . $currentYear, 0, 1, 'C');
 
 // Set font for the table
 $pdf->SetFont('helvetica', '', 12);
@@ -700,9 +701,14 @@ $months = [
 ];
 
 foreach ($months as $month) {
+    // Fetch the sum of water_charge and sewage_charge for the current month and year
+    $result = mysqli_query($conn, "SELECT SUM(water_charge + sewage_charge) AS total_due FROM invoices WHERE house_code='$tnt' AND month='$month' AND year='$currentYear' AND id NOT LIKE '%-Wat%' AND id NOT LIKE '%-Elec%'");
+    $row = mysqli_fetch_assoc($result);
+    $totalDue = $row['total_due'] ?? 0;
+
     $html .= '<tr>
                 <td>' . $month . '</td>
-                <td></td>
+                <td>' . number_format($totalDue, 2) . '</td>
               </tr>';
 }
 
