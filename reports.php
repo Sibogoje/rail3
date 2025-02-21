@@ -10,32 +10,26 @@ if (!isset($_SESSION['userid']) || !isset($_SESSION['role'])) {
 $username = $_SESSION['userid'];
 $role = $_SESSION['role'];
 
-
 // Create connection
 include('database/conn.php');
- 
- $connect = mysqli_connect($servername, $username, $password, $db);  
-
+$connect = mysqli_connect($servername, $username, $password, $db);
 
 ?>
 <html>
 <head>
 <title>Reports</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="file.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="file.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-           <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
-           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
-           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />  
-      
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
@@ -109,23 +103,17 @@ body {
   opacity: 0.8;
 }
 .form-container .tex {
- 
   color: white;
   width: 100%;
   margin:10px;
-
 }
 .form-container .tex2 {
- 
   color: white;
   width: 100%;
-
-
 }
 .form-container .select {
   background-color: #04AA6D;
   color: white;
- 
   border: none;
   cursor: pointer;
   width: 100%;
@@ -133,14 +121,11 @@ body {
   opacity: 0.8;
 }
 
-
 .clientpick{
  background-color: #04AA6D;
   color: white;
- 
   border: none;
   cursor: pointer;
-   
   margin-bottom:10px;
   opacity: 0.8;   
 }
@@ -148,7 +133,6 @@ body {
 /* Add a red background color to the cancel button */
 .form-container .cancel {
   background-color: red;
-
 }
 
 /* Add some hover effects to buttons */
@@ -166,8 +150,7 @@ body {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-   
- border-radius: 25px;
+  border-radius: 25px;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
@@ -175,7 +158,6 @@ body {
   position: fixed;
   bottom: 23px;
   right: 28px;
-
 }
 .button5 {border-radius: 12px;}
 
@@ -272,7 +254,7 @@ body {
                                     <option value="all">All Houses</option>
                                     <?php
                                     $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY house_code");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['house_code'].">".$row['house_code']."</option>";
                                     }
                                     ?>
@@ -284,8 +266,8 @@ body {
                                     <option value="">Select Month</option>
                                     <option value="all">All Months</option>
                                     <?php
-                                    $result2 = mysqli_query($.connect,"SELECT * FROM months");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    $result2 = mysqli_query($connect,"SELECT * FROM months");
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['month'].">".$row['month']."</option>";
                                     }
                                     ?>
@@ -314,7 +296,7 @@ body {
                                     <option value="all">All Stations</option>
                                     <?php
                                     $result2 = mysqli_query($connect,"SELECT * FROM stations");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['id'].">".$row['name']."</option>";
                                     }
                                     ?>
@@ -326,8 +308,8 @@ body {
                                     <option value="gg">Select Client</option>
                                     <option value="all">All Clients</option>
                                     <?php
-                                    $result2 = mysqli.query($connect,"SELECT * FROM invoices GROUP BY tenant");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY tenant");
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['tenant'].">".$row['tenant']."</option>";
                                     }
                                     ?>
@@ -339,8 +321,8 @@ body {
                                     <option value="gg">Select House</option>
                                     <option value="all">All Houses</option>
                                     <?php
-                                    $result2 = mysqli.query($connect,"SELECT * FROM invoices GROUP BY house_code");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY house_code");
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['house_code'].">".$row['house_code']."</option>";
                                     }
                                     ?>
@@ -352,8 +334,8 @@ body {
                                     <option value="">Select Month</option>
                                     <option value="all">All Months</option>
                                     <?php
-                                    $result2 = mysqli.query($connect,"SELECT * FROM months");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    $result2 = mysqli_query($connect,"SELECT * FROM months");
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['month'].">".$row['month']."</option>";
                                     }
                                     ?>
@@ -381,8 +363,8 @@ body {
                                     <option value="">Select Station</option>
                                     <option value="all">All Stations</option>
                                     <?php
-                                    $result2 = mysqli.query($connect,"SELECT * FROM stations");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    $result2 = mysqli_query($connect,"SELECT * FROM stations");
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['id'].">".$row['name']."</option>";
                                     }
                                     ?>
@@ -394,8 +376,8 @@ body {
                                     <option value="gg">Select Client</option>
                                     <option value="all">All Clients</option>
                                     <?php
-                                    $result2 = mysqli.query($connect,"SELECT * FROM invoices GROUP BY tenant");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY tenant");
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['tenant'].">".$row['tenant']."</option>";
                                     }
                                     ?>
@@ -407,8 +389,8 @@ body {
                                     <option value="gg">Select House</option>
                                     <option value="all">All Houses</option>
                                     <?php
-                                    $result2 = mysqli.query($connect,"SELECT * FROM invoices GROUP BY house_code");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY house_code");
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['house_code'].">".$row['house_code']."</option>";
                                     }
                                     ?>
@@ -420,8 +402,8 @@ body {
                                     <option value="">Select Month</option>
                                     <option value="all">All Months</option>
                                     <?php
-                                    $result2 = mysqli.query($connect,"SELECT * FROM months");
-                                    while($row = mysqli.fetch_array($result2)) {
+                                    $result2 = mysqli_query($connect,"SELECT * FROM months");
+                                    while($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=".$row['month'].">".$row['month']."</option>";
                                     }
                                     ?>
@@ -479,8 +461,8 @@ function closeForm() {
                       WHERE year = '$currentYear' 
                       GROUP BY tenant 
                       ORDER BY tenant ASC";
-            $result = mysqli.query($connect, $query);
-            while($row = mysqli.fetch_array($result))
+            $result = mysqli_query($connect, $query);
+            while($row = mysqli_fetch_array($result))
             {
                 echo '
                 <tr>
