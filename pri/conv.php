@@ -688,11 +688,11 @@ $pdf->Cell(0, 10, 'Bill to Date ' . $currentYear, 0, 1, 'C');
 $pdf->SetFont('helvetica', '', 12);
 
 // Table header
-$html = '<table cellspacing="2" cellpadding="4" border="1">
+$html = '<table cellspacing="0" cellpadding="4" border="1">
             <tr>
-                <th>Month</th>
-                <th>Invoice Number</th>
-                <th>Invoice Due</th>
+                <th style="font-weight: bold;">Month</th>
+                <th style="font-weight: bold;">Invoice Number</th>
+                <th style="font-weight: bold;">Invoice Due</th>
             </tr>';
 
 // List months from January to December
