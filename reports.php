@@ -178,6 +178,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 0;
     /* height: calc(100vh - 80px); Adjust based on header height */
 }
 </style>
