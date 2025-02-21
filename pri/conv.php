@@ -676,6 +676,41 @@ $html .= '<tr>
 $html .= '</table>';
 $pdf->writeHTML($html, true, false, true, false, '');
 
+// Add a new page
+$pdf->AddPage();
+
+// Set font for the heading
+$pdf->SetFont('helvetica', 'B', 14);
+$pdf->Cell(0, 10, 'Bill to Date', 0, 1, 'C');
+
+// Set font for the table
+$pdf->SetFont('helvetica', '', 12);
+
+// Table header
+$html = '<table cellspacing="2" cellpadding="4" border="1">
+            <tr>
+                <th>Month</th>
+                <th>Invoice Due</th>
+            </tr>';
+
+// List months from January to December
+$months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
+foreach ($months as $month) {
+    $html .= '<tr>
+                <td>' . $month . '</td>
+                <td></td>
+              </tr>';
+}
+
+$html .= '</table>';
+
+// Output the table
+$pdf->writeHTML($html, true, false, true, false, '');
+
 // Close and output PDF
 $pdf->Output($tnt.'.pdf', 'I');
 
