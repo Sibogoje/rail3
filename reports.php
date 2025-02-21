@@ -175,7 +175,6 @@ body {
 .header {
     width: 100%;
     background-color: #000930;
-    padding: 10px 0;
     text-align: center;
     color: white;
     position: fixed;
