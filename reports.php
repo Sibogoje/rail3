@@ -463,10 +463,10 @@ function closeForm() {
   </div>
 <br>  
 <div class="container" style="width: 100%;">  
-    <h3>Tenant Bills Reports</h3>  
+    <h3 class="text-center">Tenant Bills Reports</h3>  
     <br />  
     <div class="table-responsive">  
-        <table id="employee_data" class="table table-striped table-bordered">  
+        <table id="employee_data" class="table table-striped table-bordered text-center">  
             <thead>  
                 <tr>  
                     <td>Tenant</td>  
