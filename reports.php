@@ -172,16 +172,6 @@ body {
     margin-top: 20px;
 }
 
-.header {
-    width: 100%;
-    background-color: #000930;
-    text-align: center;
-    color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
 
 .main-content {
     margin-top: 80px; /* Adjust based on header height */
