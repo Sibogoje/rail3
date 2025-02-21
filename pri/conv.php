@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../database/conn.php";
-require_once('../tcpdf/tcpdf.php');
+require_once('https://liquag.com/dev/rail2/tcpdf/tcpdf.php');
 
 if (!empty($_POST["prints"])) {
 
