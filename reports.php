@@ -189,7 +189,7 @@ body {
 <?php
     include "header.php";
 ?>
-    <div class="container">
+    <div class="">
         <div style="margin-top: 72px;" class="form-inline">
             <button class="buttonz button5" onclick="openForm()"><i class="fa fa-database" aria-hidden="true"></i></button>
 
