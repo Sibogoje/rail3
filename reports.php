@@ -193,11 +193,12 @@ body {
 </style>
 </head>
 <body>
+
+
+<div class="main-content">
 <?php
     include "header.php";
 ?>
-
-<div class="main-content">
     <div class="container">
         <div style="margin-top: 72px;" class="form-inline">
             <button class="buttonz button5" onclick="openForm()"><i class="fa fa-database" aria-hidden="true"></i></button>
