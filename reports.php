@@ -455,7 +455,7 @@ function closeForm() {
                 <tr>
                     <td>' . $row["tenant"] . '</td>
                     <td>' . $row["num_invoices"] . '</td>
-                    <td>' . number_format($row["total_water_charge"], 2) + number_format($row["total_sewage_charge"], 2) . '</td>
+                    <td>' . number_format($row["total_water_charge"] + $row["total_sewage_charge"], 2) . '</td>
                     <td>' . number_format($row["total_electricity_charge"], 2) . '</td>
                     <td>' . number_format($row["total_charge"], 2) . '</td>
                 </tr>
