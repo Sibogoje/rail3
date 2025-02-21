@@ -681,7 +681,7 @@ $pdf->AddPage();
 
 // Set font for the heading
 $pdf->SetFont('helvetica', 'B', 14);
-$pdf->Cell(0, 10, 'Bill to Date', 0, 1, 'C');
+$pdf->Cell(0, 10, 'Bill to Date '.$date('YYYY'), 0, 1, 'C');
 
 // Set font for the table
 $pdf->SetFont('helvetica', '', 12);
