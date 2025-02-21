@@ -181,7 +181,6 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    padding: 10px 0; /* Adjust padding as needed */
 }
 
 .main-content {
@@ -195,11 +194,11 @@ body {
 </head>
 <body>
 
-<div class="header">
-    <?php include "header.php"; ?>
-</div>
 
 <div class="main-content">
+<?php
+    include "header.php";
+?>
     <div class="container">
         <div style="margin-top: 72px;" class="form-inline">
             <button class="buttonz button5" onclick="openForm()"><i class="fa fa-database" aria-hidden="true"></i></button>
@@ -505,5 +504,50 @@ $("#wateron").hide();
 }
 } 
 </script>
+
+
+
+<script> 
+
+    $(document).on('click','#genstation',function(e) {
+		var data = $("#stationform").serialize();
+		$.ajax({
+			data: data,
+			type: "post",
+			url: "backend/stationrepo.php",
+			success: function(dataResult){
+					var dataResult = JSON.parse(dataResult);
+					if(dataResult.statusCode==200){
+				
+						 $('#employee_data').hide(); 
+						//alert('Data added successfully !'); 
+                        location.reload();						
+					}
+					else if(dataResult.statusCode==201){
+					   alert("Please fill all the fields !");
+					}
+			}
+		});
+	});
+
+
+ $(document).ready(function(){
+     
+     // In your Javascript (external .js resource or <script> tag)
+
+   
+     
+     
+$("#steshi").hide();
+$("#elecon").hide();
+$("#wateron").hide();
+      $('#employee_data').DataTable(); 
+      // In your Javascript (external .js resource or <script> tag)
+
+    $('.js-example-basic-single').select2();
+    $('.js-example-basic-multiple').select2();
+
+ });  
+ </script> 
 </body>
 </html>
