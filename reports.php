@@ -443,7 +443,7 @@ function closeForm() {
             </thead>
             <?php
             $currentYear = date('Y');
-            $query = "SELECT tenant, COUNT(*) AS num_invoices, SUM(water_charge) AS total_water_charge, SUM(electricity_charge) AS total_electricity_charge, SUM(water_charge + electricity_charge) AS total_charge 
+            $query = "SELECT tenant, COUNT(*) AS num_invoices, SUM(water_charge) AS total_water_charge, SUM(sewage_charge) AS total_sewage_charge, SUM(electricity_charge) AS total_electricity_charge, SUM(water_charge + electricity_charge + sewage_charge) AS total_charge 
                       FROM invoices 
                       WHERE year = '$currentYear' 
                       GROUP BY tenant 
@@ -455,7 +455,7 @@ function closeForm() {
                 <tr>
                     <td>' . $row["tenant"] . '</td>
                     <td>' . $row["num_invoices"] . '</td>
-                    <td>' . number_format($row["total_water_charge"], 2) . '</td>
+                    <td>' . number_format($row["total_water_charge"], 2) + number_format($row["total_sewage_charge"], 2) . '</td>
                     <td>' . number_format($row["total_electricity_charge"], 2) . '</td>
                     <td>' . number_format($row["total_charge"], 2) . '</td>
                 </tr>
