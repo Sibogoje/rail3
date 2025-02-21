@@ -43,11 +43,8 @@ include('database/conn.php');
 body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    background-color: #f8f9fa;
 }
 * {
     box-sizing: border-box;
@@ -190,6 +187,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 </style>
 </head>
@@ -198,324 +196,279 @@ body {
     include "header.php";
 ?>
 
+<div class="container">
+    <div style="margin-top: 72px;" class="form-inline">
+        <button class="buttonz button5" onclick="openForm()"><i class="fa fa-database" aria-hidden="true"></i></button>
 
-
-<div class="container" >
-    
-<div style="margin-top: 72px;" class="form-inline">
-<button class="buttonz button5" onclick="openForm()"><i class="fa fa-database" aria-hidden="true"></i></button>
-
-
-
-
-<div class="form-popup" id="myForm">
- <div class="form-container" id="stationform">
-    <h3 class="tex">Design Query</h3>
-    
- <div id="reportpick" style="width: 250px;">
-     <select id="reports" name="reports" class="form-control select" required>
-                                <option value="first">Choose Report</option>
-                                 <option value="pstation">Per Station</option>
-                                  <option value="wateronly">Water Only</option>
-                                   <option value="eleconly">Electricity Only</option>
-                                  
-    </select>
-    </div>
-   <br><br>
-   <div id="steshi">
-    <form action="pri/stations.php" method="POST" class="form-container"> 
-   <label style="color: white;">Station </label>
-   <div id="stationspick">
-     <select id="stationsrepo" name="stationsrepo" class="form-control select" style="width: 100%" required>
+        <div class="form-popup" id="myForm">
+            <div class="form-container" id="stationform">
+                <h3 class="tex">Design Query</h3>
+                <div id="reportpick" style="width: 250px;">
+                    <select id="reports" name="reports" class="form-control select" required>
+                        <option value="first">Choose Report</option>
+                        <option value="pstation">Per Station</option>
+                        <option value="wateronly">Water Only</option>
+                        <option value="eleconly">Electricity Only</option>
+                    </select>
+                </div>
+                <br><br>
+                <div id="steshi">
+                    <form action="pri/stations.php" method="POST" class="form-container">
+                        <label style="color: white;">Station </label>
+                        <div id="stationspick">
+                            <select id="stationsrepo" name="stationsrepo" class="form-control select" style="width: 100%" required>
                                 <option value="">Select Station</option>
                                 <option value="all">All Stations</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM stations");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['id'].">".$row['name']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-    
-    <label style="color: white;">Where Client </label>
-     <div id="clientpick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
-     <select id="clientsrepo" name="clientsrepo" class="form-control select js-example-basic-single" style="width: 100%; " >
+                                $result2 = mysqli_query($connect,"SELECT * FROM stations");
+                                while($row = mysqli_fetch_array($result2)) {
+                                    echo "<option value=".$row['id'].">".$row['name']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">Where Client </label>
+                        <div id="clientpick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
+                            <select id="clientsrepo" name="clientsrepo" class="form-control select js-example-basic-single" style="width: 100%;">
                                 <option value="">Select Client</option>
-                                 <option value="all">All Clients</option>
+                                <option value="all">All Clients</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY tenant");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['tenant'].">".$row['tenant']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-    <label style="color: white;">OR House (Pick One) </label>
-         <div id="housepick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
-     <select id="houserepo" name="houserepo" class="form-control select js-example-basic-single" style="width: 100%; " >
+                                $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY tenant");
+                                while($row = mysqli_fetch_array($result2)) {
+                                    echo "<option value=".$row['tenant'].">".$row['tenant']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">OR House (Pick One) </label>
+                        <div id="housepick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
+                            <select id="houserepo" name="houserepo" class="form-control select js-example-basic-single" style="width: 100%;">
                                 <option value="">Select House</option>
-                                 <option value="all">All Houses</option>
+                                <option value="all">All Houses</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY house_code");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['house_code'].">".$row['house_code']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-    <label style="color: white;">And Month </label>
-     <div id="monthpick">
-     <select id="monthsrepo" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%; " multiple="multiple" required>
+                                $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY house_code");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['house_code'].">".$row['house_code']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">And Month </label>
+                        <div id="monthpick">
+                            <select id="monthsrepo" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%;" multiple="multiple" required>
                                 <option value="">Select Month</option>
-                                 <option value="all">All Months</option>
+                                <option value="all">All Months</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM months");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['month'].">".$row['month']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-            <label style="color: white;">And Year </label>
-     <div id="yearpick">
-     <select id="yearrepo" name="yearrepo" class="form-control select js-example-basic-multiple" style="width: 100%; "  required>
+                                $result2 = mysqli_query($connect,"SELECT * FROM months");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['month'].">".$row['month']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">And Year </label>
+                        <div id="yearpick">
+                            <select id="yearrepo" name="yearrepo" class="form-control select js-example-basic-multiple" style="width: 100%;" required>
                                 <option value="">Select Year</option>
-                                 <option value="2022">2022</option>
-                                  <option value="2023">2023</option>
-                                   <option value="2024">2024</option>
-                                    <option value="2025">2025</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <input type="submit" formtarget="_blank" class="btn" id="genstation" id="prints" name="prints" value="Generate Station Report">
+                    </form>
+                </div>
 
-    </select>
-    </div>
-        <input type="submit" formtarget="_blank"  class="btn" id="genstation" id="prints" name="prints" value="Generate Station Report">
-    </form>
-    </div>
-    
-    
-    
-    
-    
-    
-   <div id="wateron">
-    <form action="pri/water.php" method="POST" class="form-container"> 
-   <label style="color: white;">Station </label>
-   <div id="stationspick">
-     <select id="stationsrepo" name="stationsrepo" class="form-control select" style="width: 100%" required>
+                <div id="wateron">
+                    <form action="pri/water.php" method="POST" class="form-container">
+                        <label style="color: white;">Station </label>
+                        <div id="stationspick">
+                            <select id="stationsrepo" name="stationsrepo" class="form-control select" style="width: 100%" required>
                                 <option value="">Select Station</option>
                                 <option value="all">All Stations</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM stations");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['id'].">".$row['name']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-    
-    <label style="color: white;">Where Client </label>
-     <div id="clientpick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
-     <select id="clientsrepo1" name="clientsrepo" class="form-control select js-example-basic-single" style="width: 100%; " >
+                                $result2 = mysqli_query($connect,"SELECT * FROM stations");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['id'].">".$row['name']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">Where Client </label>
+                        <div id="clientpick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
+                            <select id="clientsrepo1" name="clientsrepo" class="form-control select js-example-basic-single" style="width: 100%;">
                                 <option value="gg">Select Client</option>
-                                 <option value="all">All Clients</option>
+                                <option value="all">All Clients</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY tenant");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['tenant'].">".$row['tenant']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-        <label style="color: white;">OR House (Pick One) </label>
-         <div id="housepick1" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
-     <select id="houserepo1" name="houserepo1[]" class="form-control select js-example-basic-multiple" style="width: 100%; " multiple="multiple" >
+                                $result2 = mysqli.query($connect,"SELECT * FROM invoices GROUP BY tenant");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['tenant'].">".$row['tenant']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">OR House (Pick One) </label>
+                        <div id="housepick1" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
+                            <select id="houserepo1" name="houserepo1[]" class="form-control select js-example-basic-multiple" style="width: 100%;" multiple="multiple">
                                 <option value="gg">Select House</option>
-                                 <option value="all">All Houses</option>
+                                <option value="all">All Houses</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY house_code");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['house_code'].">".$row['house_code']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-    <label style="color: white;">And Month </label>
-     <div id="monthpick">
-     <select id="monthsrepo1" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%; " multiple="multiple" required>
+                                $result2 = mysqli.query($connect,"SELECT * FROM invoices GROUP BY house_code");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['house_code'].">".$row['house_code']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">And Month </label>
+                        <div id="monthpick">
+                            <select id="monthsrepo1" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%;" multiple="multiple" required>
                                 <option value="">Select Month</option>
-                                 <option value="all">All Months</option>
+                                <option value="all">All Months</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM months");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['month'].">".$row['month']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-    
-        <label style="color: white;">And Year </label>
-     <div id="yearpick">
-     <select id="yearrepo1" name="yearrepo1" class="form-control select js-example-basic-multiple" style="width: 100%; "  required>
+                                $result2 = mysqli.query($connect,"SELECT * FROM months");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['month'].">".$row['month']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">And Year </label>
+                        <div id="yearpick">
+                            <select id="yearrepo1" name="yearrepo1" class="form-control select js-example-basic-multiple" style="width: 100%;" required>
                                 <option value="">Select Year</option>
-                                 <option value="2022">2022</option>
-                                  <option value="2023">2023</option>
-                                   <option value="2024">2024</option>
-                                    <option value="2025">2025</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <input type="submit" formtarget="_blank" class="btn" id="genstation" id="prints" name="prints" value="Generate Water Report" style="background-color: #008CDB;">
+                    </form>
+                </div>
 
-    </select>
-    </div>
-    
-    
-        <input type="submit" formtarget="_blank"  class="btn" id="genstation" id="prints" name="prints" value="Generate Water Report" style="background-color: #008CDB;">
-    </form>
-    </div>
-
-   
-    
-    
-       <div id="elecon">
-    <form action="pri/elec.php" method="POST" class="form-container"> 
-   <label style="color: white;">Station </label>
-   <div id="stationspick">
-     <select id="stationsrepo" name="stationsrepo" class="form-control select" style="width: 100%" required>
+                <div id="elecon">
+                    <form action="pri/elec.php" method="POST" class="form-container">
+                        <label style="color: white;">Station </label>
+                        <div id="stationspick">
+                            <select id="stationsrepo" name="stationsrepo" class="form-control select" style="width: 100%" required>
                                 <option value="">Select Station</option>
                                 <option value="all">All Stations</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM stations");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['id'].">".$row['name']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-    
-    <label style="color: white;">Where Client </label>
-     <div id="clientpick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
-     <select id="clientsrepo2" name="clientsrepo" class="form-control select js-example-basic-single" style="width: 100%; " >
+                                $result2 = mysqli.query($connect,"SELECT * FROM stations");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['id'].">".$row['name']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">Where Client </label>
+                        <div id="clientpick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
+                            <select id="clientsrepo2" name="clientsrepo" class="form-control select js-example-basic-single" style="width: 100%;">
                                 <option value="gg">Select Client</option>
-                                 <option value="all">All Clients</option>
+                                <option value="all">All Clients</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY tenant");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['tenant'].">".$row['tenant']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-        <label style="color: white;">OR House (Pick One) </label>
-         <div id="housepick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
-     <select id="houserepo2" name="houserepo2[]" class="form-control select js-example-basic-multiple" style="width: 100%; " multiple="multiple" >
+                                $result2 = mysqli.query($connect,"SELECT * FROM invoices GROUP BY tenant");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['tenant'].">".$row['tenant']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">OR House (Pick One) </label>
+                        <div id="housepick" style="background-color: #04AA6D; color: white; border: none; margin-bottom:10px;">
+                            <select id="houserepo2" name="houserepo2[]" class="form-control select js-example-basic-multiple" style="width: 100%;" multiple="multiple">
                                 <option value="gg">Select House</option>
-                                 <option value="all">All Houses</option>
+                                <option value="all">All Houses</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM invoices GROUP BY house_code");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['house_code'].">".$row['house_code']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-    <label style="color: white;">And Month </label>
-     <div id="monthpick">
-     <select id="monthsrepo2" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%; " multiple="multiple" required>
+                                $result2 = mysqli.query($connect,"SELECT * FROM invoices GROUP BY house_code");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['house_code'].">".$row['house_code']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">And Month </label>
+                        <div id="monthpick">
+                            <select id="monthsrepo2" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%;" multiple="multiple" required>
                                 <option value="">Select Month</option>
-                                 <option value="all">All Months</option>
+                                <option value="all">All Months</option>
                                 <?php
-				           $result2 = mysqli_query($connect,"SELECT * FROM months");
-					
-					while($row = mysqli_fetch_array($result2)) {
-                       echo "<option value=".$row['month'].">".$row['month']."</option>";
-                    }
-				       ?>
-    </select>
-    </div>
-    
-            <label style="color: white;">And Year </label>
-     <div id="yearpick">
-     <select id="yearrepo2" name="yearrepo2" class="form-control select js-example-basic-multiple" style="width: 100%; "  required>
+                                $result2 = mysqli.query($connect,"SELECT * FROM months");
+                                while($row = mysqli.fetch_array($result2)) {
+                                    echo "<option value=".$row['month'].">".$row['month']."</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <label style="color: white;">And Year </label>
+                        <div id="yearpick">
+                            <select id="yearrepo2" name="yearrepo2" class="form-control select js-example-basic-multiple" style="width: 100%;" required>
                                 <option value="">Select Year</option>
-                                 <option value="2022">2022</option>
-                                  <option value="2023">2023</option>
-                                   <option value="2024">2024</option>
-                                    <option value="2025">2025</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <input type="submit" formtarget="_blank" class="btn" id="genstation" id="prints" name="prints" value="Generate Electricity Report" style="background-color: #1FDB00;">
+                    </form>
+                </div>
 
-    </select>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </div>
+        </div>
     </div>
-    
-        <input type="submit" formtarget="_blank"  class="btn" id="genstation" id="prints" name="prints" value="Generate Electricity Report" style="background-color: #1FDB00;">
-    </form>
-    </div>
-    
-    
-    
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </div>
-</div></div>
-
-
-
-
-
+</div>
 
 <script>
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+    document.getElementById("myForm").style.display = "block";
 }
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+    document.getElementById("myForm").style.display = "none";
 }
 </script>
-  </div>
-<br>  
-<div class="container" style="width: 100%;">  
-    <h3 class="text-center">Tenant Bills Reports</h3>  
-    <br />  
-    <div class="table-responsive">  
-        <table id="employee_data" class="table table-striped table-bordered text-center">  
-            <thead>  
-                <tr>  
-                    <td>Tenant</td>  
-                    <td># of Invoices</td>  
-                    <td>T. Water Charge (E)</td>  
-                    <td>T. Electr. Units (E)</td>  
-                    <td>Total (E)</td> 
-                </tr>  
-            </thead>  
-            <?php  
+
+<div class="container">
+    <h3 class="text-center">Tenant Bills Reports</h3>
+    <br />
+    <div class="table-responsive">
+        <table id="employee_data" class="table table-striped table-bordered text-center">
+            <thead>
+                <tr>
+                    <td>Tenant</td>
+                    <td># of Invoices</td>
+                    <td>T. Water Charge (E)</td>
+                    <td>T. Electr. Units (E)</td>
+                    <td>Total (E)</td>
+                </tr>
+            </thead>
+            <?php
             $currentYear = date('Y');
             $query = "SELECT tenant, COUNT(*) AS num_invoices, SUM(water_charge) AS total_water_charge, SUM(electricity_charge) AS total_electricity_charge, SUM(water_charge + electricity_charge) AS total_charge 
                       FROM invoices 
                       WHERE year = '$currentYear' 
                       GROUP BY tenant 
-                      ORDER BY tenant ASC";  
-            $result = mysqli_query($connect, $query);  
-            while($row = mysqli_fetch_array($result))  
-            {  
-                echo '  
-                <tr>  
-                    <td>' . $row["tenant"] . '</td>  
-                    <td>' . $row["num_invoices"] . '</td>  
-                    <td>' . number_format($row["total_water_charge"], 2) . '</td>  
-                    <td>' . number_format($row["total_electricity_charge"], 2) . '</td>  
-                    <td>' . number_format($row["total_charge"], 2) . '</td> 
-                </tr>  
-                ';  
-            }  
-            ?>  
-        </table>  
-    </div>  
+                      ORDER BY tenant ASC";
+            $result = mysqli.query($connect, $query);
+            while($row = mysqli.fetch_array($result))
+            {
+                echo '
+                <tr>
+                    <td>' . $row["tenant"] . '</td>
+                    <td>' . $row["num_invoices"] . '</td>
+                    <td>' . number_format($row["total_water_charge"], 2) . '</td>
+                    <td>' . number_format($row["total_electricity_charge"], 2) . '</td>
+                    <td>' . number_format($row["total_charge"], 2) . '</td>
+                </tr>
+                ';
+            }
+            ?>
+        </table>
+    </div>
 </div>
 
 <script>
