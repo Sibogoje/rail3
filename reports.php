@@ -463,37 +463,42 @@ function closeForm() {
   </div>
 <br>  
 <div class="container" style="width: 100%;">  
-    <h3 align="center">Bills Reports</h3>  
-        <br />  
-            <div class="table-responsive">  
-                <table id="employee_data" class="table table-striped table-bordered">  
-                    <thead>  
-                        <tr>  
-                                    <td>Month</td>  
-                                    <td>T. Water Units</td>  
-                                    <td>T. Water Charge (E)</td>  
-                                    <td>T. Electr. Units</td>  
-                                    <td>T. Electr. Charge (E)</td> 
-                                   
-                        </tr>  
-                    </thead>  
-                          <?php  
-                           $query ="SELECT `month`, SUM(`w_units`) AS W_Units, SUM(`water_charge`) AS Twater, SUM(`e_units`) AS E_Units,  SUM(`electricity_charge`) AS Telec  FROM `invoices`  GROUP BY `month` DESC";  
-                            $result = mysqli_query($connect, $query);  
-                          while($row = mysqli_fetch_array($result))  
-                          {  
-                               echo '  
-                               
-                               ';  
-                          }  
-                          ?>  
-                     </table>  
-                     
-
-                     
-                </div>  
-           </div>  
-      </body>  
+    <h3>Tenant Bills Reports</h3>  
+    <br />  
+    <div class="table-responsive">  
+        <table id="employee_data" class="table table-striped table-bordered">  
+            <thead>  
+                <tr>  
+                    <td>Tenant</td>  
+                    <td># of Invoices</td>  
+                    <td>T. Water Charge (E)</td>  
+                    <td>T. Electr. Units (E)</td>  
+                    <td>Total (E)</td> 
+                </tr>  
+            </thead>  
+            <?php  
+            $currentYear = date('Y');
+            $query = "SELECT tenant, COUNT(*) AS num_invoices, SUM(water_charge) AS total_water_charge, SUM(electricity_charge) AS total_electricity_charge, SUM(water_charge + electricity_charge) AS total_charge 
+                      FROM invoices 
+                      WHERE year = '$currentYear' 
+                      GROUP BY tenant 
+                      ORDER BY tenant ASC";  
+            $result = mysqli_query($connect, $query);  
+            while($row = mysqli_fetch_array($result))  
+            {  
+                echo '  
+                <tr>  
+                    <td>' . $row["tenant"] . '</td>  
+                    <td>' . $row["num_invoices"] . '</td>  
+                    <td>' . number_format($row["total_water_charge"], 2) . '</td>  
+                    <td>' . number_format($row["total_electricity_charge"], 2) . '</td>  
+                    <td>' . number_format($row["total_charge"], 2) . '</td> 
+                </tr>  
+                ';  
+            }  
+            ?>  
+        </table>  
+    </div>  
 </div>
 
 <script>
