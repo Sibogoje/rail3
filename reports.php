@@ -174,7 +174,7 @@ body {
 
 
 .main-content {
-    margin-top: 80px; /* Adjust based on header height */
+    /* margin-top: 80px; Adjust based on header height */
     display: flex;
     justify-content: center;
     align-items: center;
