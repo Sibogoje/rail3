@@ -439,6 +439,7 @@ function closeForm() {
                     <td>T. Water Charge (E)</td>
                     <td>T. Electr. Units (E)</td>
                     <td>Total (E)</td>
+                    <td>Action</td>
                 </tr>
             </thead>
             <?php
@@ -458,6 +459,7 @@ function closeForm() {
                     <td>' . number_format($row["total_water_charge"] + $row["total_sewage_charge"], 2) . '</td>
                     <td>' . number_format($row["total_electricity_charge"], 2) . '</td>
                     <td>' . number_format($row["total_charge"], 2) . '</td>
+                    <td><button class="btn btn-primary">Print</button></td>
                 </tr>
                 ';
             }
