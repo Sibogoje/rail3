@@ -691,6 +691,7 @@ $pdf->SetFont('helvetica', '', 12);
 $html = '<table cellspacing="2" cellpadding="4" border="1">
             <tr>
                 <th>Month</th>
+                <th>Invoice Number</th>
                 <th>Invoice Due</th>
             </tr>';
 
@@ -701,13 +702,15 @@ $months = [
 ];
 
 foreach ($months as $month) {
-    // Fetch the sum of water_charge and sewage_charge for the current month and year
-    $result = mysqli_query($conn, "SELECT SUM(water_charge + sewage_charge) AS total_due FROM invoices WHERE house_code='$tnt' AND month='$month' AND year='$currentYear' AND id NOT LIKE '%-Wat%' AND id NOT LIKE '%-Elec%'");
+    // Fetch the invoice number and sum of water_charge and sewage_charge for the current month and year
+    $result = mysqli_query($conn, "SELECT invoicenumber, SUM(water_charge + sewage_charge) AS total_due FROM invoices WHERE house_code='$tnt' AND month='$month' AND year='$currentYear' AND id NOT LIKE '%-Wat%' AND id NOT LIKE '%-Elec%' GROUP BY invoicenumber");
     $row = mysqli_fetch_assoc($result);
+    $invoiceNumber = $row['invoicenumber'] ?? '';
     $totalDue = $row['total_due'] ?? 0;
 
     $html .= '<tr>
                 <td>' . $month . '</td>
+                <td>' . $invoiceNumber . '</td>
                 <td>' . number_format($totalDue, 2) . '</td>
               </tr>';
 }
