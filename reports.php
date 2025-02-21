@@ -462,10 +462,10 @@ function closeForm() {
 </script>
   </div>
 <br>  
-<div class="container" style="width: 100%; padding: 70%;">  
+<div class="container" style="width: 100%;">  
     <h3 class="text-center">Tenant Bills Reports</h3>  
     <br />  
-    <div class="table-responsive">  
+    <div class="table-responsive" style="padding: 70%;">  
         <table id="employee_data" class="table table-striped table-bordered text-center">  
             <thead>  
                 <tr>  
