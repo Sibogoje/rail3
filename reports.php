@@ -191,7 +191,7 @@ body {
     include "header.php";
 ?>
     <div class="">
-        <div style="margin-top: 72px;" class="form-inline">
+        <div  class="form-inline">
             <button class="buttonz button5" onclick="openForm()"><i class="fa fa-database" aria-hidden="true"></i></button>
 
             <div class="form-popup" id="myForm">
