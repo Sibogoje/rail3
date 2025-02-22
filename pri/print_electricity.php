@@ -108,7 +108,7 @@ if ($data->num_rows > 0) {
     $pdf->writeHTML($html, true, false, true, false, '');
 
     // Close and output PDF
-    $pdf->Output($tenant . '_water_invoice_breakdown.pdf', 'I');
+    $pdf->Output($tenant . '_electricity_invoice_breakdown.pdf', 'I');
 } else {
     echo "<script>alert('No data found for the selected tenant.');
     window.location='../reports.php';
