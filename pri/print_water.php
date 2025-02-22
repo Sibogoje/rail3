@@ -89,7 +89,7 @@ if ($data->num_rows > 0) {
         $html .= '<tr>
                     <td>' . $row['month'] . '</td>
                     <td>' . number_format($row['total_amount'], 2) . '</td>
-                    <td>' . number_format($row['total_paid'], 2) . '</td>
+                    <td></td>
                   </tr>';
         $totalAmount += $row['total_amount'];
         $totalPaid += $row['total_paid'];
