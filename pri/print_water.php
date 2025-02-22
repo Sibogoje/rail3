@@ -69,7 +69,7 @@ if ($data->num_rows > 0) {
     // Set font for the heading
     $pdf->SetFont('helvetica', 'B', 14);
     $currentYear = date('Y');
-    $pdf->Cell(0, 10, 'Water and Sewage Invoice Breakdown for ' . $tenant . ' - ' . $currentYear, 0, 1, 'C');
+    $pdf->Cell(0, 10, 'Water and Sewage Invoices Breakdown for ' . $tenant . ' - ' . $currentYear, 0, 1, 'C');
 
     // Set font for the table
     $pdf->SetFont('helvetica', '', 12);
