@@ -7,7 +7,8 @@ $tenant = $_GET['tenant'];
 
 $data = mysqli_query($conn, "SELECT 
   `month`, 
-  SUM(`water_charge` + `sewage_charge`) AS `total_amount`
+  SUM(`water_charge` + `sewage_charge`) AS `total_amount`,
+  SUM(`paid`) AS `total_paid`
 FROM 
   `invoices`
 WHERE 
@@ -32,7 +33,7 @@ if ($data->num_rows > 0) {
         public function Header() {
             // Logo
             $image_url = 'https://www.liquag.com/dev/rail2/pri/logo2.PNG'; // Direct URL to the image
-            $this->Image($image_url, 10, 5, 180, '', 'PNG', '', 'T', false, 10, '', false, false, 0, false, false, false);
+            $this->Image($image_url, 10, 5, 190, '', 'PNG', '', 'T', false, 10, '', false, false, 0, false, false, false);
 
             $this->SetFont('helvetica', 'B', 14); // Set the font to bold and size 12.
             $this->SetY(15);
@@ -68,7 +69,7 @@ if ($data->num_rows > 0) {
     // Set font for the heading
     $pdf->SetFont('helvetica', 'B', 14);
     $currentYear = date('Y');
-    $pdf->Cell(0, 10, 'Water Invoice Breakdown for ' . $tenant . ' - ' . $currentYear, 0, 1, 'C');
+    $pdf->Cell(0, 10, 'Water and Sewage Invoice Breakdown for ' . $tenant . ' - ' . $currentYear, 0, 1, 'C');
 
     // Set font for the table
     $pdf->SetFont('helvetica', '', 12);
@@ -78,22 +79,27 @@ if ($data->num_rows > 0) {
                 <tr>
                     <th style="font-weight: bold;">Month</th>
                     <th style="font-weight: bold;">Amount Due (E)</th>
+                    <th style="font-weight: bold;">Paid (E)</th>
                 </tr>';
 
     // Fetch data and populate table
     $totalAmount = 0;
+    $totalPaid = 0;
     while ($row = mysqli_fetch_assoc($data)) {
         $html .= '<tr>
                     <td>' . $row['month'] . '</td>
                     <td>' . number_format($row['total_amount'], 2) . '</td>
+                    <td>' . number_format($row['total_paid'], 2) . '</td>
                   </tr>';
         $totalAmount += $row['total_amount'];
+        $totalPaid += $row['total_paid'];
     }
 
     // Add total row
     $html .= '<tr>
                 <td style="font-weight: bold;">Total</td>
                 <td style="font-weight: bold;">' . number_format($totalAmount, 2) . '</td>
+                <td style="font-weight: bold;">' . number_format($totalPaid, 2) . '</td>
               </tr>';
 
     $html .= '</table>';
