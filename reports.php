@@ -460,9 +460,10 @@ function closeForm() {
                     <td>' . number_format($row["total_electricity_charge"], 2) . '</td>
                     <td>' . number_format($row["total_charge"], 2) . '</td>
                     <td>
-                        <a href="pri/print_water.php?tenant=' . $row["tenant"] . '" class="btn btn-info">Print Water</a>
-                        <a href="pri/print_electricity.php?tenant=' . $row["tenant"] . '" class="btn btn-success">Print Electricity</a>
+                    <a href="pri/print_water.php?tenant=<?php echo $row['tenant']; ?>" class="btn btn-info" target="_blank">Print Water</a>
+                    <a href="pri/print_electricity.php?tenant=<?php echo $row['tenant']; ?>" class="btn btn-success" target="_blank">Print Electricity</a>
                     </td>
+
                 </tr>
                 ';
             }
