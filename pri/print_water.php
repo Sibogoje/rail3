@@ -99,7 +99,7 @@ if ($data->num_rows > 0) {
     $html .= '<tr>
                 <td style="font-weight: bold;">Total</td>
                 <td style="font-weight: bold;">' . number_format($totalAmount, 2) . '</td>
-                <td style="font-weight: bold;">' '</td>
+                <td style="font-weight: bold;"></td>
               </tr>';
 
     $html .= '</table>';
