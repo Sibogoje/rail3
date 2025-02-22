@@ -460,7 +460,6 @@ function closeForm() {
                     <td>' . number_format($row["total_electricity_charge"], 2) . '</td>
                     <td>' . number_format($row["total_charge"], 2) . '</td>
                     <td>
-                        <button class="btn btn-primary">Print</button>
                         <button class="btn btn-info">Print Water</button>
                         <button class="btn btn-success">Print Electricity</button>
                     </td>
