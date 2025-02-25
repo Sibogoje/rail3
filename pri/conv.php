@@ -161,7 +161,7 @@ $total = $w + $subtotal;
 
 $monthDays = [
     "January" => 31,
-    "February" => 29, // You might want to consider leap years
+    "February" => 28, // You might want to consider leap years
     "March" => 31,
     "April" => 30,
     "May" => 31,
