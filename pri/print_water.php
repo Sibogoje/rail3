@@ -7,12 +7,14 @@ $tenant = $_GET['tenant'];
 
 $data = mysqli_query($conn, "SELECT 
   `month`, 
-  SUM(`water_charge` + CASE WHEN `electricity_charge` < 1 THEN 0.00 ELSE `sewage_charge` END) AS `total_amount`,
+  SUM(`water_charge` +  `sewage_charge`) AS `total_amount`,
   SUM(`paid`) AS `total_paid`
 FROM 
   `invoices`
 WHERE 
   `tenant` = '$tenant' 
+  
+  AND w_units > 0
   AND `year` = YEAR(CURDATE())
 GROUP BY 
   `month`
