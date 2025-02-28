@@ -677,7 +677,7 @@ $html .= '</table>';
 $pdf->writeHTML($html, true, false, true, false, '');
 
 // Add a new page
-$pdf->AddPage();
+//$pdf->AddPage();
 
 // Set font for the heading
 $pdf->SetFont('helvetica', 'B', 14);
