@@ -536,13 +536,13 @@ $(document).ready(function() {
     // Ensure the form submission is bound only once
     $("#paymentForm").off("submit").on("submit", function(event) {
         event.preventDefault(); // Prevent default form submission
-        const formData = $(this).serialize(); // Serialize form data
-
-        console.log("Form Data Sent:", formData); // Debugging: Log the form data
 
         // Disable the submit button to prevent multiple clicks
         const submitButton = $(this).find("button[type='submit']");
         submitButton.prop("disabled", true);
+
+        const formData = $(this).serialize(); // Serialize form data
+        console.log("Form Data Sent:", formData); // Debugging: Log the form data
 
         $.ajax({
             url: "pri/save_payment.php", // Adjust the URL if needed
@@ -554,6 +554,7 @@ $(document).ready(function() {
                     const jsonResponse = typeof response === "string" ? JSON.parse(response) : response; // Parse the response
                     alert(jsonResponse.message); // Display success message
                     if (jsonResponse.success) {
+                        $("#paymentModal").modal("hide"); // Hide the modal
                         location.reload(); // Reload the page to update the table
                     }
                 } catch (e) {
@@ -570,6 +571,12 @@ $(document).ready(function() {
                 submitButton.prop("disabled", false);
             }
         });
+    });
+
+    // Reset the form and re-enable the submit button when the modal is closed
+    $("#paymentModal").on("hidden.bs.modal", function() {
+        $("#paymentForm")[0].reset(); // Reset the form
+        $("#paymentForm").find("button[type='submit']").prop("disabled", false); // Re-enable the submit button
     });
 });
 </script>
