@@ -550,9 +550,15 @@ $(document).ready(function() {
             data: formData,
             success: function(response) {
                 console.log("Response Received:", response); // Debugging: Log the response
-                alert(response.message); // Display success message
-                if (response.success) {
-                    location.reload(); // Reload the page to update the table
+                try {
+                    const jsonResponse = JSON.parse(response); // Parse the response
+                    alert(jsonResponse.message); // Display success message
+                    if (jsonResponse.success) {
+                        location.reload(); // Reload the page to update the table
+                    }
+                } catch (e) {
+                    console.error("Invalid JSON response:", response); // Debugging: Log invalid JSON
+                    alert("An error occurred while processing the payment.");
                 }
             },
             error: function(xhr, status, error) {
