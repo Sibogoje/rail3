@@ -551,7 +551,7 @@ $(document).ready(function() {
             success: function(response) {
                 console.log("Response Received:", response); // Debugging: Log the response
                 try {
-                    const jsonResponse = JSON.parse(response); // Parse the response
+                    const jsonResponse = typeof response === "string" ? JSON.parse(response) : response; // Parse the response
                     alert(jsonResponse.message); // Display success message
                     if (jsonResponse.success) {
                         location.reload(); // Reload the page to update the table

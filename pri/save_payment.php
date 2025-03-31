@@ -15,7 +15,7 @@ if (isset($_POST['tenant']) && isset($_POST['amount'])) {
     // Validate the data
     if (!empty($tenant) && $amount > 0) {
         // Start a transaction to prevent race conditions
-        mysqli_begin_transaction($conn);
+        mysqli_begin_transaction($conn, MYSQLI_TRANS_START_READ_WRITE);
 
         try {
             // Check if a record exists in the `paid` table for this tenant
@@ -47,5 +47,7 @@ if (isset($_POST['tenant']) && isset($_POST['amount'])) {
     }
 }
 
+// Ensure a valid JSON response is always returned
+header('Content-Type: application/json');
 echo json_encode($response);
 ?>
