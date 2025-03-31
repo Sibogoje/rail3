@@ -509,10 +509,10 @@ function closeForm() {
                     <h4 class="modal-title">Make Payment</h4>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="tenant" name="tenant">
+                    <input type="hidden" id="tenant" name="tenant"> <!-- Ensure 'name' attribute is present -->
                     <div class="form-group">
                         <label for="amount">Amount Paid (E):</label>
-                        <input type="number" class="form-control" id="amount" name="amount" required>
+                        <input type="number" class="form-control" id="amount" name="amount" required> <!-- Ensure 'name' attribute is present -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -523,6 +523,38 @@ function closeForm() {
         </div>
     </div>
 </div>
+
+<script>
+$(document).ready(function() {
+    // Open payment modal
+    $(".pay-btn").click(function() {
+        const tenant = $(this).data("tenant");
+        $("#tenant").val(tenant); // Set tenant value in the hidden input
+        $("#paymentModal").modal("show");
+    });
+
+    // Handle payment form submission
+    $("#paymentForm").submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
+        const formData = $(this).serialize(); // Serialize form data
+
+        $.ajax({
+            url: "pri/save_payment.php", // Adjust the URL if needed
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                alert(response.message); // Display success message
+                if (response.success) {
+                    location.reload(); // Reload the page to update the table
+                }
+            },
+            error: function() {
+                alert("An error occurred while processing the payment."); // Display error message
+            }
+        });
+    });
+});
+</script>
 
 <script>
 
