@@ -533,7 +533,7 @@ $(document).ready(function() {
         $("#paymentModal").modal("show");
     });
 
-    // Handle payment form submission
+    // Ensure the form submission is bound only once
     $("#paymentForm").off("submit").on("submit", function(event) {
         event.preventDefault(); // Prevent default form submission
         const formData = $(this).serialize(); // Serialize form data
