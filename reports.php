@@ -487,8 +487,8 @@ function closeForm() {
                     <td>' . number_format($totalPaid, 2) . '</td>
                     <td>' . number_format($balance, 2) . '</td>
                     <td>
-                        <a href="pri/print_water.php?tenant=' . $tenant . '" class="btn btn-info" target="_blank">Print Water</a>
-                        <a href="pri/print_electricity.php?tenant=' . $tenant . '" class="btn btn-success" target="_blank">Print Electricity</a>
+                        <a href="pri/print_water.php?tenant=' . $tenant . '" class="btn btn-info" target="_blank">Water</a>
+                        <a href="pri/print_electricity.php?tenant=' . $tenant . '" class="btn btn-success" target="_blank">Electricity</a>
                         <button class="btn btn-primary pay-btn" data-tenant="' . $tenant . '" data-total="' . $totalCharge . '">Pay</button>
                     </td>
                 </tr>
