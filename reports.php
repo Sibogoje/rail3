@@ -538,17 +538,21 @@ $(document).ready(function() {
         event.preventDefault(); // Prevent default form submission
         const formData = $(this).serialize(); // Serialize form data
 
+        console.log("Form Data Sent:", formData); // Debugging: Log the form data
+
         $.ajax({
             url: "pri/save_payment.php", // Adjust the URL if needed
             type: "POST",
             data: formData,
             success: function(response) {
+                console.log("Response Received:", response); // Debugging: Log the response
                 alert(response.message); // Display success message
                 if (response.success) {
                     location.reload(); // Reload the page to update the table
                 }
             },
-            error: function() {
+            error: function(xhr, status, error) {
+                console.error("AJAX Error:", status, error); // Debugging: Log AJAX errors
                 alert("An error occurred while processing the payment."); // Display error message
             }
         });
