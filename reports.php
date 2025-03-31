@@ -255,11 +255,10 @@ body {
                             <div id="monthpick">
                                 <select id="monthsrepo" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%;" multiple="multiple" required>
                                     <option value="">Select Month</option>
-                                    <option value="all">All Months</option>
                                     <?php
-                                    $result2 = mysqli_query($connect,"SELECT * FROM months");
-                                    while($row = mysqli_fetch_array($result2)) {
-                                        echo "<option value=".$row['month'].">".$row['month']."</option>";
+                                    $result2 = mysqli_query($connect, "SELECT DISTINCT month FROM invoices WHERE year = '2025'");
+                                    while ($row = mysqli_fetch_array($result2)) {
+                                        echo "<option value=" . $row['month'] . ">" . $row['month'] . "</option>";
                                     }
                                     ?>
                                 </select>
@@ -323,11 +322,10 @@ body {
                             <div id="monthpick">
                                 <select id="monthsrepo1" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%;" multiple="multiple" required>
                                     <option value="">Select Month</option>
-                                    <option value="all">All Months</option>
                                     <?php
-                                    $result2 = mysqli_query($connect,"SELECT * FROM months");
-                                    while($row = mysqli_fetch_array($result2)) {
-                                        echo "<option value=".$row['month'].">".$row['month']."</option>";
+                                    $result2 = mysqli_query($connect, "SELECT DISTINCT month FROM invoices WHERE year = '2025'");
+                                    while ($row = mysqli_fetch_array($result2)) {
+                                        echo "<option value=" . $row['month'] . ">" . $row['month'] . "</option>";
                                     }
                                     ?>
                                 </select>
@@ -391,11 +389,10 @@ body {
                             <div id="monthpick">
                                 <select id="monthsrepo2" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%;" multiple="multiple" required>
                                     <option value="">Select Month</option>
-                                    <option value="all">All Months</option>
                                     <?php
-                                    $result2 = mysqli_query($connect,"SELECT * FROM months");
-                                    while($row = mysqli_fetch_array($result2)) {
-                                        echo "<option value=".$row['month'].">".$row['month']."</option>";
+                                    $result2 = mysqli_query($connect, "SELECT DISTINCT month FROM invoices WHERE year = '2025'");
+                                    while ($row = mysqli_fetch_array($result2)) {
+                                        echo "<option value=" . $row['month'] . ">" . $row['month'] . "</option>";
                                     }
                                     ?>
                                 </select>
