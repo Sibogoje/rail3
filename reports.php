@@ -185,6 +185,13 @@ body {
     top: 0;
     /* height: calc(100vh - 80px); Adjust based on header height */
 }
+
+/* Center the modal */
+.modal-dialog {
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
 </style>
 </head>
 <body>
