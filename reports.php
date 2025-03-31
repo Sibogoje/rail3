@@ -32,6 +32,10 @@ $connect = mysqli_connect($servername, $username, $password, $db);
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include Bootstrap Modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
 body {
@@ -439,35 +443,82 @@ function closeForm() {
                     <td>T. Water Charge (E)</td>
                     <td>T. Electr. Units (E)</td>
                     <td>Total (E)</td>
+                    <td>Amount Paid (E)</td>
+                    <td>Balance (E)</td>
                     <td>Action</td>
                 </tr>
             </thead>
             <?php
             $currentYear = date('Y');
-            $query = "SELECT tenant, COUNT(*) AS num_invoices, SUM(water_charge) AS total_water_charge, SUM(sewage_charge) AS total_sewage_charge, SUM(electricity_charge) AS total_electricity_charge, SUM(water_charge + electricity_charge + sewage_charge) AS total_charge 
+            $query = "SELECT tenant, COUNT(*) AS num_invoices, 
+                      SUM(water_charge) AS total_water_charge, 
+                      SUM(sewage_charge) AS total_sewage_charge, 
+                      SUM(electricity_charge) AS total_electricity_charge, 
+                      SUM(water_charge + electricity_charge + sewage_charge) AS total_charge 
                       FROM invoices 
                       WHERE year = '$currentYear' 
                       GROUP BY tenant 
                       ORDER BY tenant ASC";
             $result = mysqli_query($connect, $query);
-            while($row = mysqli_fetch_array($result))
-            {
+            while ($row = mysqli_fetch_array($result)) {
+                $tenant = $row["tenant"];
+                $totalCharge = $row["total_charge"];
+
+                // Fetch amount paid from the `paid` table
+                $paidQuery = "SELECT SUM(amount) AS total_paid FROM paid WHERE tenant = '$tenant'";
+                $paidResult = mysqli_query($connect, $paidQuery);
+                $paidRow = mysqli_fetch_assoc($paidResult);
+                $totalPaid = $paidRow['total_paid'] ?? 0;
+
+                // Calculate balance
+                $balance = $totalCharge - $totalPaid;
+
                 echo '
                 <tr>
-                    <td>' . $row["tenant"] . '</td>
+                    <td>' . $tenant . '</td>
                     <td>' . $row["num_invoices"] . '</td>
                     <td>' . number_format($row["total_water_charge"] + $row["total_sewage_charge"], 2) . '</td>
                     <td>' . number_format($row["total_electricity_charge"], 2) . '</td>
-                    <td>' . number_format($row["total_charge"], 2) . '</td>
+                    <td>' . number_format($totalCharge, 2) . '</td>
+                    <td>' . number_format($totalPaid, 2) . '</td>
+                    <td>' . number_format($balance, 2) . '</td>
                     <td>
-                        <a href="pri/print_water.php?tenant=' . $row["tenant"] . '" class="btn btn-info" target="_blank">Print Water</a>
-                        <a href="pri/print_electricity.php?tenant=' . $row["tenant"] . '" class="btn btn-success" target="_blank">Print Electricity</a>
+                        <button class="btn btn-primary pay-btn" data-tenant="' . $tenant . '" data-total="' . $totalCharge . '">Pay</button>
                     </td>
                 </tr>
                 ';
             }
             ?>
         </table>
+    </div>
+</div>
+
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="paymentForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Make Payment</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="tenant" name="tenant">
+                    <div class="form-group">
+                        <label for="amount">Amount Paid (E):</label>
+                        <input type="number" class="form-control" id="amount" name="amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="month">Month:</label>
+                        <input type="text" class="form-control" id="month" name="month" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -539,6 +590,33 @@ $("#wateron").hide();
     $('.js-example-basic-single').select2();
     $('.js-example-basic-multiple').select2();
 
+    // Open payment modal
+    $(".pay-btn").click(function() {
+        const tenant = $(this).data("tenant");
+        $("#tenant").val(tenant);
+        $("#paymentModal").modal("show");
+    });
+
+    // Handle payment form submission
+    $("#paymentForm").submit(function(event) {
+        event.preventDefault();
+        const formData = $(this).serialize();
+
+        $.ajax({
+            url: "pri/save_payment.php",
+            type: "POST",
+            data: formData,
+            success: function(response) {
+                alert(response.message);
+                if (response.success) {
+                    location.reload(); // Reload the page to update the table
+                }
+            },
+            error: function() {
+                alert("An error occurred while processing the payment.");
+            }
+        });
+    });
  });  
  </script> 
 </body>
