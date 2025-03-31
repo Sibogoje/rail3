@@ -509,7 +509,15 @@ function closeForm() {
                     </div>
                     <div class="form-group">
                         <label for="month">Month:</label>
-                        <input type="text" class="form-control" id="month" name="month" required>
+                        <select class="form-control" id="month" name="month" required>
+                            <option value="">Select Month</option>
+                            <?php
+                            $result2 = mysqli_query($connect, "SELECT DISTINCT month FROM invoices WHERE year = '2025'");
+                            while ($row = mysqli_fetch_array($result2)) {
+                                echo "<option value='" . $row['month'] . "'>" . $row['month'] . "</option>";
+                            }
+                            ?>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
