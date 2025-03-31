@@ -539,6 +539,9 @@ $(document).ready(function() {
 
         // Disable the submit button to prevent multiple clicks
         const submitButton = $(this).find("button[type='submit']");
+        if (submitButton.prop("disabled")) {
+            return; // Prevent duplicate submissions
+        }
         submitButton.prop("disabled", true);
 
         const formData = $(this).serialize(); // Serialize form data
