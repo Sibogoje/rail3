@@ -640,7 +640,11 @@ $("#wateron").hide();
      
      // In your Javascript (external .js resource or <script> tag)
 
-   
+// Reset the form when modal is closed
+$("#paymentModal").on("hidden.bs.modal", function() {
+        $("#paymentForm")[0].reset();
+        $("#paymentForm").find("button[type='submit']").prop("disabled", false);
+    });   
      
      
 $("#steshi").hide();
@@ -659,26 +663,7 @@ $("#wateron").hide();
         $("#paymentModal").modal("show");
     });
 
-    // Handle payment form submission
-    $("#paymentForm").submit(function(event) {
-        event.preventDefault();
-        const formData = $(this).serialize();
 
-        $.ajax({
-            url: "pri/save_payment.php",
-            type: "POST",
-            data: formData,
-            success: function(response) {
-                alert(response.message);
-                if (response.success) {
-                    location.reload(); // Reload the page to update the table
-                }
-            },
-            error: function() {
-                alert("An error occurred while processing the payment.");
-            }
-        });
-    });
  });  
  </script> 
 </body>
