@@ -534,11 +534,15 @@ $(document).ready(function() {
     });
 
     // Handle payment form submission
-    $("#paymentForm").submit(function(event) {
+    $("#paymentForm").off("submit").on("submit", function(event) {
         event.preventDefault(); // Prevent default form submission
         const formData = $(this).serialize(); // Serialize form data
 
         console.log("Form Data Sent:", formData); // Debugging: Log the form data
+
+        // Disable the submit button to prevent multiple clicks
+        const submitButton = $(this).find("button[type='submit']");
+        submitButton.prop("disabled", true);
 
         $.ajax({
             url: "pri/save_payment.php", // Adjust the URL if needed
@@ -554,6 +558,10 @@ $(document).ready(function() {
             error: function(xhr, status, error) {
                 console.error("AJAX Error:", status, error); // Debugging: Log AJAX errors
                 alert("An error occurred while processing the payment."); // Display error message
+            },
+            complete: function() {
+                // Re-enable the submit button after the request completes
+                submitButton.prop("disabled", false);
             }
         });
     });
