@@ -635,7 +635,7 @@ $html .= '<tr>
 <td>Internet Transfer</td>
 <td></td>
 <td></td>
-<td style="border: 1px solid black; font-weight: bold;">Carry-Over</td>
+<td style="border: 1px solid black; font-weight: bold;">'.$year.' Total</td>
 <td style="border: 1px solid black;">E '.$carryover.' </td>
 </tr>';
 
