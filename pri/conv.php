@@ -251,15 +251,15 @@ if ($row3 = $result3->fetch_assoc()) {
     $carryover = $row3['total_charges'] ?? 0.00;
 }
 
-// Adjust total based on carryover
-if ($carryover < 0) {
-    $total = $total + $carrybalance;
-} else {
-    $total = $total - $carryover;
-}
+// // Adjust total based on carryover
+// if ($carryover < 0) {
+//     $total = $total + $carrybalance;
+// } else {
+//     $total = $total - $carryover;
+// }
 
-// Add current year's charges to carryover
-$carryover += $water_charge + $electricity_charge + $sewage_charge;
+// // Add current year's charges to carryover
+// $carryover += $water_charge + $electricity_charge + $sewage_charge;
 
 }
 
