@@ -677,21 +677,8 @@ $html .= '<tr>
 <td style="border: none;"></td>
 <td style="border: none;"></td>
 <td style="border: 1px solid black; font-weight: bold;">Balance '.$year.'</td>
-<td style="border: 1px solid black; ">'.$carryover - $paid.'</td>
+<td style="border: 1px solid black; font-weight: bold;">E '.$carryover - $paid.'</td>
 </tr>';
-
-$html .= '<tr>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: 1px solid black; font-weight: bold; padding: 1px;">Total</td>
-<td style="border: 1px solid black;">E '.$water_charge+$electricity_charge+$sewage_charge.'</td>
-</tr>';
-
-
 
 
 $html .= '</table>';
