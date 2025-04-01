@@ -583,69 +583,6 @@ $html .= '<tr>
 <td colspan="8" style="border: none;"></td>
 </tr>';
 
-$html .= '<tr>
-<td colspan="3" style="font-weight: bold;" >Payment Details </td>
-
-<td>Internet Transfer</td>
-<td></td>
-<td></td>
-<td style="border: 1px solid black; font-weight: bold;">Carry-Over</td>
-<td style="border: 1px solid black;">E '.$carryover.' </td>
-</tr>';
-
-$html .= '<tr>
-<td colspan="2" style="font-weight: bold;">Name </td>
-<td></td>
-<td>Eswatini Railway</td>
-<td></td>
-<td></td>
-<td style="border: 1px solid black; font-weight: bold;">SubTotal</td>
-<td style="border: 1px solid black;">'.number_format($sewage_charge + $water_charge, 2).'</td>
-</tr>';
-
-$html .= '<tr>
-<td colspan="2" style="font-weight: bold;">CC# </td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td style="border: 1px solid black; font-weight: bold;">VAT</td>
-<td style="border: 1px solid black; font-weight: bold;"></td>
-</tr>';
-
-$html .= '<tr>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: 1px solid black; font-weight: bold;">Sales Tax</td>
-<td style="border: 1px solid black; "></td>
-</tr>';
-
-$html .= '<tr>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: 1px solid black; font-weight: bold; padding: 1px;">Total</td>
-<td style="border: 1px solid black;">E '.number_format($sewage_charge + $water_charge, 2).'</td>
-</tr>';
-
-
-
-$html .= '<tr>
-<td colspan="2" style="font-weight: bold;">Name </td>
-<td></td>
-<td>Eswatini Railway</td>
-<td></td>
-<td></td>
-<td style="border: 1px solid black; font-weight: bold;">'.$month.' Total</td>
-<td style="border: 1px solid black;">E '.$water_charge+$sewage_charge.'</td>
-</tr>';
 
 $html .= '<tr>
 <td colspan="3" style="font-weight: bold;" >Payment Details </td>
