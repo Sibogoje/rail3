@@ -201,11 +201,32 @@ $stmt2 = $conn->prepare($selectpayments);
 $stmt2->bind_param("s", $tnt);
 $stmt2->execute();
 
+// Get the result set as an associative array
+$result2 = $stmt2->get_result();
+$balancez = 0.00;
+$creditz = 0.00;
+$carryover = 0.00;
+$carrybalance = 0.00;
+if ($row2 = $result2->fetch_assoc()) {
+	$balancez = 0 - $row2['balance'];
+	$creditz = $row2['credit'];
+	$carryover = $balancez + $creditz;
+	$carrybalance = $row2['balance'];
+} else {
+	$balancez = 0.00;
+	$creditz = 0.00;
+}
+
+if ($carryover < 0){
+	$total = $total + $carrybalance	;
+}else{
+	$total = $total - $carryover;
+}
 
 
 // Query to sum all invoices for the current year for the tenant
 $currentYear = date("Y");
-$sumInvoicesQuery = "SELECT SUM(water_charge + sewage_charge) AS total_charges 
+$sumInvoicesQuery = "SELECT SUM(water_charge +  sewage_charge) AS total_charges 
                      FROM `invoices` 
                      WHERE `house_code` = ? AND `year` = ?";
 $stmt3 = $conn->prepare($sumInvoicesQuery);
