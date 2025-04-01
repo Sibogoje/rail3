@@ -231,6 +231,35 @@ if ($carryover < 0){
 	$total = $total - $carryover;
 }
 
+
+
+// Query to sum all invoices for the current year for the tenant
+$currentYear = date("Y");
+$sumInvoicesQuery = "SELECT SUM(electricity_charge) AS total_charges 
+                     FROM `invoices` 
+                     WHERE `house_code` = ? AND `year` = ?";
+$stmt3 = $conn->prepare($sumInvoicesQuery);
+$stmt3->bind_param("ss", $tnt, $currentYear);
+$stmt3->execute();
+$result3 = $stmt3->get_result();
+
+if ($row3 = $result3->fetch_assoc()) {
+    $carryover = $row3['total_charges'] ?? 0.00;
+}
+
+// Fetch the amount paid by the tenant
+$paid = 0.00;
+$paidQuery = "SELECT SUM(amount) AS total_paid FROM `paid` WHERE `tenant` = ?";
+$stmt4 = $conn->prepare($paidQuery);
+$stmt4->bind_param("s", $tena);
+$stmt4->execute();
+$result4 = $stmt4->get_result();
+
+if ($row4 = $result4->fetch_assoc()) {
+    $paid = $row4['total_paid'] ?? 0.00;
+}
+
+
 }
 
 
@@ -522,23 +551,22 @@ $html .= '<tr>
 </tr>';
 
 $html .= '<tr>
-<td colspan="3" style="font-weight: bold;" >Payment Details </td>
-
-<td>Internet Transfer</td>
-<td></td>
-<td></td>
-<td style="border: 1px solid black; font-weight: bold;">Carry-Over</td>
-<td style="border: 1px solid black;">E '.$carryover.' </td>
-</tr>';
-
-$html .= '<tr>
 <td colspan="2" style="font-weight: bold;">Name </td>
 <td></td>
 <td>Eswatini Railway</td>
 <td></td>
 <td></td>
-<td style="border: 1px solid black; font-weight: bold;">SubTotal</td>
-<td style="border: 1px solid black;">'.$electricity_charge.'</td>
+<td style="border: 1px solid black; font-weight: bold;">'.$month.' Total</td>
+<td style="border: 1px solid black;">E '.$electricity_charge.'</td>
+</tr>';
+
+$html .= '<tr>
+<td colspan="3" style="font-weight: bold;" >Payment Details </td>
+<td>Internet Transfer</td>
+<td></td>
+<td></td>
+<td style="border: 1px solid black; font-weight: bold;">'.$year.' Total</td>
+<td style="border: 1px solid black;">E '.$carryover.' </td>
 </tr>';
 
 $html .= '<tr>
@@ -547,8 +575,8 @@ $html .= '<tr>
 <td></td>
 <td></td>
 <td></td>
-<td style="border: 1px solid black; font-weight: bold;">VAT</td>
-<td style="border: 1px solid black; font-weight: bold;"></td>
+<td style="border: 1px solid black; font-weight: bold;">Amount Paid</td>
+<td style="border: 1px solid black; font-weight: bold;">E '.$paid.'</td>
 </tr>';
 
 $html .= '<tr>
@@ -558,19 +586,8 @@ $html .= '<tr>
 <td style="border: none;"></td>
 <td style="border: none;"></td>
 <td style="border: none;"></td>
-<td style="border: 1px solid black; font-weight: bold;">Sales Tax</td>
-<td style="border: 1px solid black; "></td>
-</tr>';
-
-$html .= '<tr>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: none;"></td>
-<td style="border: 1px solid black; font-weight: bold; padding: 1px;">Total</td>
-<td style="border: 1px solid black;">E '.$electricity_charge.'</td>
+<td style="border: 1px solid black; font-weight: bold;">Balance '.$year.'</td>
+<td style="border: 1px solid black; font-weight: bold;">E '.$carryover - $paid.'</td>
 </tr>';
 
 
@@ -578,53 +595,6 @@ $html .= '<tr>
 
 $html .= '</table>';
 $pdf->writeHTML($html, true, false, true, false, '');
-
-// // Add a new page
-// $pdf->AddPage();
-
-// // Set font for the heading
-// $pdf->SetFont('helvetica', 'B', 14);
-// $currentYear = date('Y');
-// $pdf->Cell(0, 10, 'Bill to Date ' . $currentYear, 0, 1, 'C');
-
-// // Set font for the table
-// $pdf->SetFont('helvetica', '', 12);
-
-// // Table header
-// $html = '<table cellspacing="0" cellpadding="4" border="1">
-//             <tr>
-//                 <th style="font-weight: bold;">Month</th>
-//                 <th style="font-weight: bold;">Invoice Number</th>
-//                 <th style="font-weight: bold;">Invoice Due</th>
-//             </tr>';
-
-// // List months from January to December
-// $months = [
-//     "January", "February", "March", "April", "May", "June",
-//     "July", "August", "September", "October", "November", "December"
-// ];
-
-// foreach ($months as $month) {
-//     // Fetch the invoice number and sum of electricity_charge for the current month and year
-//     $result = mysqli_query($conn, "SELECT invoicenumber, electricity_charge FROM invoices WHERE house_code='$tnt' AND month='$month' AND year='$currentYear' AND id LIKE '%-Elec%'");
-//     $invoiceNumber = '';
-//     $totalDue = 0;
-//     while ($row = mysqli_fetch_assoc($result)) {
-//         $invoiceNumber = $row['invoicenumber'];
-//         $totalDue += $row['electricity_charge'];
-//     }
-
-//     $html .= '<tr>
-//                 <td>' . $month . '</td>
-//                 <td>' . $invoiceNumber . '</td>
-//                 <td>' . ($totalDue > 0 ? number_format($totalDue, 2) : '') . '</td>
-//               </tr>';
-// }
-
-// $html .= '</table>';
-
-// // Output the table
-// $pdf->writeHTML($html, true, false, true, false, '');
 
 // Close and output PDF
 $pdf->Output($tnt.'.pdf', 'I');
