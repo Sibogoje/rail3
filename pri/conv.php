@@ -251,15 +251,17 @@ if ($row3 = $result3->fetch_assoc()) {
     $carryover = $row3['total_charges'] ?? 0.00;
 }
 
-// // Adjust total based on carryover
-// if ($carryover < 0) {
-//     $total = $total + $carrybalance;
-// } else {
-//     $total = $total - $carryover;
-// }
+// Fetch the amount paid by the tenant
+$paid = 0.00;
+$paidQuery = "SELECT SUM(amount) AS total_paid FROM `paid` WHERE `tenant` = ?";
+$stmt4 = $conn->prepare($paidQuery);
+$stmt4->bind_param("s", $tena);
+$stmt4->execute();
+$result4 = $stmt4->get_result();
 
-// // Add current year's charges to carryover
-// $carryover += $water_charge + $electricity_charge + $sewage_charge;
+if ($row4 = $result4->fetch_assoc()) {
+    $paid = $row4['total_paid'] ?? 0.00;
+}
 
 }
 
@@ -663,8 +665,8 @@ $html .= '<tr>
 <td></td>
 <td></td>
 <td></td>
-<td style="border: 1px solid black; font-weight: bold;">VAT</td>
-<td style="border: 1px solid black; font-weight: bold;"></td>
+<td style="border: 1px solid black; font-weight: bold;">Amount Paid</td>
+<td style="border: 1px solid black; font-weight: bold;">E '.$paid.'</td>
 </tr>';
 
 $html .= '<tr>
@@ -674,8 +676,8 @@ $html .= '<tr>
 <td style="border: none;"></td>
 <td style="border: none;"></td>
 <td style="border: none;"></td>
-<td style="border: 1px solid black; font-weight: bold;">Sales Tax</td>
-<td style="border: 1px solid black; "></td>
+<td style="border: 1px solid black; font-weight: bold;">Balance '.$year.'</td>
+<td style="border: 1px solid black; ">'.$carryover - $paid.'</td>
 </tr>';
 
 $html .= '<tr>
