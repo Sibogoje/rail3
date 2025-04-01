@@ -512,7 +512,7 @@ function closeForm() {
                     <input type="hidden" id="tenant" name="tenant"> <!-- Ensure 'name' attribute is present -->
                     <div class="form-group">
                         <label for="amount">Amount Paid (E):</label>
-                        <input type="number" class="form-control" id="amount" name="amount" required> <!-- Ensure 'name' attribute is present -->
+                        <input type="number" name="amount" class="form-control" step="0.01" placeholder="Enter amount" required>
                     </div>
                 </div>
                 <div class="modal-footer">
