@@ -243,6 +243,9 @@ if ($carryover < 0){
 	$total = $total - $carryover;
 }
 
+// Add current year's charges to carryover
+$carryover += $water_charge + $electricity_charge + $sewage_charge;
+
 }
 
 
