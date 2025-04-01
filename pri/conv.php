@@ -626,7 +626,7 @@ $html .= '<tr>
 <td>Eswatini Railway</td>
 <td></td>
 <td></td>
-<td style="border: 1px solid black; font-weight: bold;">'.$billdate.' Total</td>
+<td style="border: 1px solid black; font-weight: bold;">'.$month.' Total</td>
 <td style="border: 1px solid black;">E '.$water_charge+$electricity_charge+$sewage_charge.'</td>
 </tr>';
 
