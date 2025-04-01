@@ -241,7 +241,7 @@ if ($row2 = $result2->fetch_assoc()) {
 $currentYear = date("Y");
 $sumInvoicesQuery = "SELECT SUM(water_charge + electricity_charge + sewage_charge) AS total_charges 
                      FROM `invoices` 
-                     WHERE `house_code` = ? AND YEAR(`billdate`) = ?";
+                     WHERE `house_code` = ? AND `year` = ?";
 $stmt3 = $conn->prepare($sumInvoicesQuery);
 $stmt3->bind_param("ss", $tnt, $currentYear);
 $stmt3->execute();
