@@ -618,15 +618,7 @@ $html .= '<tr>
 <td colspan="8" style="border: none;"></td>
 </tr>';
 
-$html .= '<tr>
-<td colspan="3" style="font-weight: bold;" >Payment Details </td>
 
-<td>Internet Transfer</td>
-<td></td>
-<td></td>
-<td style="border: 1px solid black; font-weight: bold;">Carry-Over</td>
-<td style="border: 1px solid black;">E '.$carryover.' </td>
-</tr>';
 
 $html .= '<tr>
 <td colspan="2" style="font-weight: bold;">Name </td>
@@ -634,8 +626,17 @@ $html .= '<tr>
 <td>Eswatini Railway</td>
 <td></td>
 <td></td>
-<td style="border: 1px solid black; font-weight: bold;">SubTotal</td>
+<td style="border: 1px solid black; font-weight: bold;">'.$billdate.' Total</td>
 <td style="border: 1px solid black;">E '.$water_charge+$electricity_charge+$sewage_charge.'</td>
+</tr>';
+
+$html .= '<tr>
+<td colspan="3" style="font-weight: bold;" >Payment Details </td>
+<td>Internet Transfer</td>
+<td></td>
+<td></td>
+<td style="border: 1px solid black; font-weight: bold;">Carry-Over</td>
+<td style="border: 1px solid black;">E '.$carryover.' </td>
 </tr>';
 
 $html .= '<tr>
@@ -676,52 +677,7 @@ $html .= '<tr>
 $html .= '</table>';
 $pdf->writeHTML($html, true, false, true, false, '');
 
-// Add a new page
-//$pdf->AddPage();
 
-// Set font for the heading
-// $pdf->SetFont('helvetica', 'B', 14);
-// $currentYear = date('Y');
-// $pdf->Cell(0, 10, 'Bill to Date ' . $currentYear, 0, 1, 'C');
-
-// // Set font for the table
-// $pdf->SetFont('helvetica', '', 12);
-
-// // Table header
-// $html = '<table cellspacing="0" cellpadding="4" border="1">
-//             <tr>
-//                 <th style="font-weight: bold;">Month</th>
-//                 <th style="font-weight: bold;">Invoice Number</th>
-//                 <th style="font-weight: bold;">Invoice Due</th>
-//             </tr>';
-
-// // List months from January to December
-// $months = [
-//     "January", "February", "March", "April", "May", "June",
-//     "July", "August", "September", "October", "November", "December"
-// ];
-
-// foreach ($months as $month) {
-//     // Fetch the invoice number and sum of water_charge, sewage_charge, and electricity_charge for the current month and year
-//     $result = mysqli_query($conn, "SELECT invoicenumber, water_charge, sewage_charge, electricity_charge FROM invoices WHERE house_code='$tnt' AND month='$month' AND year='$currentYear' AND id NOT LIKE '%-Wat%' AND id NOT LIKE '%-Elec%'");
-//     $invoiceNumber = '';
-//     $totalDue = 0;
-//     while ($row = mysqli_fetch_assoc($result)) {
-//         $invoiceNumber = $row['invoicenumber'];
-//         $totalDue += $row['water_charge'] + $row['sewage_charge'] + $row['electricity_charge'];
-//     }
-
-//     $html .= '<tr>
-//                 <td>' . $month . '</td>
-//                 <td>' . $invoiceNumber . '</td>
-//                 <td>' . ($totalDue > 0 ? number_format($totalDue, 2) : '') . '</td>
-//               </tr>';
-// }
-
-// $html .= '</table>';
-
-// // Output the table
-// $pdf->writeHTML($html, true, false, true, false, '');
 
 // Close and output PDF
 $pdf->Output($tnt.'.pdf', 'I');
