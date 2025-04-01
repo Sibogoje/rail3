@@ -237,10 +237,25 @@ if ($row2 = $result2->fetch_assoc()) {
 	$creditz = 0.00;
 }
 
-if ($carryover < 0){
-	$total = $total + $carrybalance	;
-}else{
-	$total = $total - $carryover;
+// Query to sum all invoices for the current year for the tenant
+$currentYear = date("Y");
+$sumInvoicesQuery = "SELECT SUM(water_charge + electricity_charge + sewage_charge) AS total_charges 
+                     FROM `invoices` 
+                     WHERE `house_code` = ? AND YEAR(`billdate`) = ?";
+$stmt3 = $conn->prepare($sumInvoicesQuery);
+$stmt3->bind_param("ss", $tnt, $currentYear);
+$stmt3->execute();
+$result3 = $stmt3->get_result();
+
+if ($row3 = $result3->fetch_assoc()) {
+    $carryover = $row3['total_charges'] ?? 0.00;
+}
+
+// Adjust total based on carryover
+if ($carryover < 0) {
+    $total = $total + $carrybalance;
+} else {
+    $total = $total - $carryover;
 }
 
 // Add current year's charges to carryover
