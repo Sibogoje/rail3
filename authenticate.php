@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verify the password
         if (password_verify($password, $dbPassword)) {
             // Password is correct, set sessions
+            session_regenerate_id(true); // Regenerate session ID to prevent session fixation
             $_SESSION['userid'] = $dbUsername;
             $_SESSION['role'] = $dbRole;
 
