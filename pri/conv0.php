@@ -281,7 +281,7 @@ class CustomPDF extends TCPDF {
     }
 public function Header() {
     // Logo
-    $image_url = 'https://www.liquag.com/dev/rail3/pri/logo2.PNG'; // Direct URL to the image
+    $image_url = 'https://www.grinpath.com/rail/pri/logo2.PNG'; // Direct URL to the image
     $this->Image($image_url, 10, 5, 180, '', 'PNG', '', 'T', false, 10, '', false, false, 0, false, false, false);
 
     // Set a cell for the invoice number
@@ -293,7 +293,7 @@ public function Header() {
     $this->SetX(10); // Set X to the desired position close to the left margin
     $this->MultiCell(0, 10, $invoice_number, 0, 'R', 0, 1, '', '', true);
 
-    $image_file = 'https://www.liquag.com/dev/rail3/pri/tax3.jpg'; // Direct URL to the image
+    $image_file = 'https://www.grinpath.com/rail/pri/tax3.jpg'; // Direct URL to the image
     $this->Image($image_file, 10, 40, 190, '', 'JPG', '', 'T', false, 10, '', false, false, 0, false, false, false);
 }
 
