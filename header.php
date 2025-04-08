@@ -14,7 +14,7 @@
 	            <ul class="list-unstyled">
             <li><a href="home.php" class="list-group-item"><i class="fa fa-tachometer"></i> Dashboard <span class="badge"></span> </a></li>
 
-            <li><a href="https://grinpath.com/rail/reports.php" class="list-group-item"><i class="fa fa-file"></i> Reports</a> </li>
+            <li><a href="https://grinpath1.com/rail/reports.php" class="list-group-item"><i class="fa fa-file"></i> Reports</a> </li>
 
             <li><a href="https://grinpath.com/rail/constants.php" class="list-group-item"><i class="fa fa-gear"></i> Constants</a> </li>
 
