@@ -5,6 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // new comment
+
     // Retrieve hashed password from the database based on the username
     $stmt = $conn->prepare("SELECT id, userid, role, password FROM users WHERE userid = ?");
     $stmt->bind_param("s", $username);
