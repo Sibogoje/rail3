@@ -73,7 +73,7 @@ if (isset($_POST['process'])) {
 
 <html>
 <head>
-<title>Payments</title>
+<title>CSV</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="file.css" rel="stylesheet">
@@ -156,9 +156,9 @@ include "header.php";
        
         <form method="POST" action="bulkprocess.php" id="paymentform"  >
                         <select id="company" name="company" class="form-control js-example-basic-single" required>
-                            <option value="">Select Company/Tenant</option>
+                            <option value="">House</option>
                             <?php
-                            $result2 = mysqli_query($conn,"SELECT distinct(tenant) as tenant  FROM  `invoices` order by tenant desc");
+                            $result2 = mysqli_query($conn,"SELECT distinct(house_code) as tenant  FROM  `invoices` order by house_code desc");
                             while($row = mysqli_fetch_array($result2)) {
                             echo "<option value=".$row['tenant'].">".$row['tenant']." </option>";
                             }?>
@@ -166,12 +166,28 @@ include "header.php";
                         
                         <div class="date-range-row">
                             <div class="date-range-item">
-                                <label for="from" class="date-label">FROM</label>
-                                <input type="date" id="from" name="from" class="form-control">
+                                <label for="year" class="date-label">Year</label>
+                                <select id="year" name="year" class="form-control">
+                                    <option value="">Select Year</option>
+                                    <?php for ($y = 2021; $y <= 2025; $y++): ?>
+                                        <option value="<?php echo $y; ?>"><?php echo $y; ?></option>
+                                    <?php endfor; ?>
+                                </select>
                             </div>
                             <div class="date-range-item">
-                                <label for="to" class="date-label">TO</label>
-                                <input type="date" id="to" name="to" class="form-control">
+                                <label for="month" class="date-label">Month</label>
+                                <select id="month" name="month" class="form-control">
+                                    <option value="">Select Month</option>
+                                    <?php 
+                                    $months = [
+                                        "January", "February", "March", "April", "May", 
+                                        "June", "July", "August", "September", "October", 
+                                        "November", "December"
+                                    ];
+                                    foreach ($months as $index => $month): ?>
+                                        <option value="<?php echo $index + 1; ?>"><?php echo $month; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
 
@@ -250,13 +266,13 @@ $(document).ready(function() {
     // Function to update invoice data
 function updateInvoiceData() {
     var company = $('#company').val();
-    var from = $('#from').val();
-    var to = $('#to').val();
+    var year = $('#year').val();
+    var month = $('#month').val();
 
     $.ajax({
         url: 'fetchbulk.php',
         type: 'POST',
-        data: {company: company, from: from, to: to},
+        data: {company: company, year: year, month: month},
         success: function(response) {
             // Assuming response is an object with count and total
             $('#invoice_count').val(response.count);
@@ -266,7 +282,7 @@ function updateInvoiceData() {
 }
 
 // Event listeners
-$('#company, #from, #to').change(updateInvoiceData);
+$('#company, #year, #month').change(updateInvoiceData);
 
 $('#payment').on('input', function() {
     var payAmount = parseFloat($(this).val()) || 0;
