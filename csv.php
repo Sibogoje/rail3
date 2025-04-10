@@ -25,7 +25,6 @@ if (isset($_POST['process'])) {
     $stmt1->bind_param("di", $paymentAmount, $selectedInvoiceNumber);
     $stmt1->execute();
 
-
 // Step 2: Get 'tenant' from 'invoices' table
     $getTenantQuery = "SELECT house_code FROM invoices WHERE invoicenumber = ?";
     $stmt2 = $conn->prepare($getTenantQuery);
@@ -70,19 +69,29 @@ if (isset($_POST['process'])) {
 }
 
 if (isset($_POST['export_csv'])) {
-    // Fetch data from the invoices table
-    $query = "SELECT house_code AS `House Nr`, tenant AS `Occupant`, invoicenumber AS `Inv Number`, 
-                     month AS `Month`, 
-                     CASE 
-                         WHEN water_charge > 0 THEN 'Water'
-                         WHEN electricity_charge > 0 THEN 'Electricity'
-                         WHEN sewage_charge > 0 THEN 'Sewage'
-                         ELSE 'Other'
-                     END AS `Type`,
-                     (water_charge + electricity_charge + sewage_charge) AS `Amount`,
-                     ROUND((water_charge + electricity_charge + sewage_charge) * 0.15, 2) AS `VAT`,
-                     ROUND((water_charge + electricity_charge + sewage_charge) * 1.15, 2) AS `Amount Incl`
-              FROM invoices";
+    // Fetch data from the invoices table and separate by type
+    $query = "
+        SELECT house_code AS `House Nr`, tenant AS `Occupant`, invoicenumber AS `Inv Number`, 
+               month AS `Month`, 'Water' AS `Type`, water_charge AS `Amount`,
+               ROUND(water_charge * 0.15, 2) AS `VAT`,
+               ROUND(water_charge * 1.15, 2) AS `Amount Incl`
+        FROM invoices
+        WHERE water_charge > 0
+        UNION ALL
+        SELECT house_code AS `House Nr`, tenant AS `Occupant`, invoicenumber AS `Inv Number`, 
+               month AS `Month`, 'Electricity' AS `Type`, electricity_charge AS `Amount`,
+               ROUND(electricity_charge * 0.15, 2) AS `VAT`,
+               ROUND(electricity_charge * 1.15, 2) AS `Amount Incl`
+        FROM invoices
+        WHERE electricity_charge > 0
+        UNION ALL
+        SELECT house_code AS `House Nr`, tenant AS `Occupant`, invoicenumber AS `Inv Number`, 
+               month AS `Month`, 'Sewage' AS `Type`, sewage_charge AS `Amount`,
+               ROUND(sewage_charge * 0.15, 2) AS `VAT`,
+               ROUND(sewage_charge * 1.15, 2) AS `Amount Incl`
+        FROM invoices
+        WHERE sewage_charge > 0
+    ";
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {
