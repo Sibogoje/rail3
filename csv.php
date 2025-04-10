@@ -129,34 +129,69 @@ if (isset($_POST['export_csv'])) {
 <head>
     <title>CSV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="file.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .custom-container {
+            margin-top: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-control {
+            border-radius: 6px;
+        }
+        .btn-success {
+            background-color: #198754;
+            border-color: #198754;
+            border-radius: 6px;
+        }
+        .btn-success:hover {
+            background-color: #157347;
+            border-color: #146c43;
+        }
+        h3 {
+            font-weight: 500;
+            color: #333;
+        }
+        label {
+            font-weight: 500;
+            color: #555;
+        }
+        .header {
+            margin-top: 0;
+            padding: 10px 20px;
+            background-color: #343a40;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-<?php include "header.php"; ?>
+<div class="header">
+    <h1 class="text-center">Invoice Management</h1>
+</div>
 
-<div class="container custom-container" style="margin-top: 20px;">
-    <h3>Invoice Payments</h3>
+<div class="container custom-container">
+    <h3 class="text-center">Invoice Payments</h3>
     <form method="POST" action="">
-        <div class="form-group">
-            <label for="year">Year</label>
-            <select id="year" name="year" class="form-control">
+        <div class="mb-3">
+            <label for="year" class="form-label">Year</label>
+            <select id="year" name="year" class="form-select">
                 <option value="">Select Year</option>
                 <?php for ($y = 2021; $y <= 2025; $y++): ?>
                     <option value="<?php echo $y; ?>"><?php echo $y; ?></option>
                 <?php endfor; ?>
             </select>
         </div>
-        <div class="form-group">
-            <label for="month">Month</label>
-            <select id="month" name="month" class="form-control">
+        <div class="mb-3">
+            <label for="month" class="form-label">Month</label>
+            <select id="month" name="month" class="form-select">
                 <option value="">Select Month</option>
                 <?php 
                 $months = [
@@ -169,16 +204,20 @@ if (isset($_POST['export_csv'])) {
                 <?php endforeach; ?>
             </select>
         </div>
-        <div class="form-group">
-            <button type="submit" name="export_csv" class="btn btn-success" style="width: 100%;">Export CSV</button>
+        <div class="d-grid">
+            <button type="submit" name="export_csv" class="btn btn-success">Export CSV</button>
         </div>
     </form>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
+    document.addEventListener('DOMContentLoaded', function () {
+        const selects = document.querySelectorAll('.form-select');
+        selects.forEach(select => {
+            select.classList.add('form-select-lg');
+        });
+    });
 </script>
 </body>
 </html>
