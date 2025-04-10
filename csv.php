@@ -58,6 +58,19 @@ if (isset($_POST['export_csv'])) {
     $selectedYear = $_POST['year'];
     $selectedMonth = $_POST['month'];
 
+    // Convert numeric month to full month name if needed
+    $months = [
+        1 => "January", 2 => "February", 3 => "March", 4 => "April", 5 => "May",
+        6 => "June", 7 => "July", 8 => "August", 9 => "September", 10 => "October",
+        11 => "November", 12 => "December"
+    ];
+    $selectedMonthName = $months[(int)$selectedMonth];
+
+    // Debugging: Check the values being passed
+    // Uncomment the following lines to debug
+    // echo "Selected Year: $selectedYear, Selected Month: $selectedMonthName";
+    // exit;
+
     // Fetch data from the invoices table and separate by type within the selected month and year
     $query = "
         SELECT house_code AS `House Nr`, tenant AS `Occupant`, invoicenumber AS `Inv Number`, 
@@ -83,7 +96,7 @@ if (isset($_POST['export_csv'])) {
     ";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("isisis", $selectedYear, $selectedMonth, $selectedYear, $selectedMonth, $selectedYear, $selectedMonth);
+    $stmt->bind_param("ssssss", $selectedYear, $selectedMonthName, $selectedYear, $selectedMonthName, $selectedYear, $selectedMonthName);
     $stmt->execute();
     $result = $stmt->get_result();
 
