@@ -510,12 +510,11 @@ $('#mnts').val(jk2);
 });
 
 $(document).ready(function() {
-    // Updated constants with 4% increase
-    const BASIC_CHARGE = 93.88 * 1.04;
-    const FLAT_RATE_1_10 = 80.92 * 1.04;
-    const RATE_11_15 = 21.08 * 1.04;
-    const RATE_16_50 = 31.74 * 1.04;
-    const RATE_ABOVE_50 = 37.67;
+    const BASIC_CHARGE = 97.63 * 1.04;
+    const FLAT_RATE_1_10 = 84.16 * 1.04;
+    const RATE_11_15 = 21.92 * 1.04;
+    const RATE_16_50 = 33.01 * 1.04;
+    const RATE_ABOVE_50 = 37.67 * 1.04;
     const FIXED_ELEC_CHARGE = 0.00; // Assuming no change for electricity charge
 
     $('#calprevwater').on("input", function() {
@@ -553,7 +552,7 @@ $(document).ready(function() {
 
 
 $('#defwater').on("click", function() {
-  $('#twater').val(93.88 + 80.92);
+  $('#twater').val(189.06);
    $('#telec').val(0);
 });
 
@@ -587,7 +586,7 @@ $('#calprevelec').on("input", function() {
 var inp2 = $(this).val() - $('#ffprevelec').val();
 $('#minprevelec').val(inp2);
 
-$('#telec').val(($('#minprevelec').val() * 2.384).toFixed(2));
+$('#telec').val(($('#minprevelec').val() * 2.574).toFixed(2));
 
 	
 });
