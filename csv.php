@@ -69,6 +69,45 @@ if (isset($_POST['process'])) {
     }
 }
 
+if (isset($_POST['export_csv'])) {
+    // Fetch data from the invoices table
+    $query = "SELECT house_code AS `House Nr`, tenant AS `Occupant`, invoicenumber AS `Inv Number`, 
+                     month AS `Month`, 
+                     CASE 
+                         WHEN water_charge > 0 THEN 'Water'
+                         WHEN electricity_charge > 0 THEN 'Electricity'
+                         WHEN sewage_charge > 0 THEN 'Sewage'
+                         ELSE 'Other'
+                     END AS `Type`,
+                     (water_charge + electricity_charge + sewage_charge) AS `Amount`,
+                     ROUND((water_charge + electricity_charge + sewage_charge) * 0.15, 2) AS `VAT`,
+                     ROUND((water_charge + electricity_charge + sewage_charge) * 1.15, 2) AS `Amount Incl`
+              FROM invoices";
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        // Set headers for CSV download
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="invoices.csv"');
+
+        // Open output stream
+        $output = fopen('php://output', 'w');
+
+        // Write column headers
+        fputcsv($output, ['House Nr', 'Occupant', 'Inv Number', 'Month', 'Type', 'Amount', 'VAT', 'Amount Incl']);
+
+        // Write rows
+        while ($row = $result->fetch_assoc()) {
+            fputcsv($output, $row);
+        }
+
+        fclose($output);
+        exit;
+    } else {
+        echo "<script>alert('No data available to export.');</script>";
+    }
+}
+
 ?>
 
 <html>
@@ -192,6 +231,11 @@ include "header.php";
                            
                             
         </form>
+        <div class="form-group">
+            <form method="POST" action="">
+                <button type="submit" name="export_csv" class="btn btn-success" style="width: 100%;">Export CSV</button>
+            </form>
+        </div>
 </div>
 </div>
 </div>
