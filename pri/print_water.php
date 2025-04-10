@@ -35,14 +35,14 @@ if ($data->num_rows > 0) {
     class CustomPDF extends TCPDF {
         public function Header() {
             // Logo
-            $image_url = 'https://www.liquag.com/dev/rail2/pri/logo2.PNG'; // Direct URL to the image
+            $image_url = 'https://www.grinpath.com/rail/pri/logo2.PNG'; // Direct URL to the image
             $this->Image($image_url, 10, 5, 190, '', 'PNG', '', 'T', false, 10, '', false, false, 0, false, false, false);
 
             $this->SetFont('helvetica', 'B', 14); // Set the font to bold and size 12.
             $this->SetY(15);
             $this->SetX(10); // Set X to the desired position close to the left margin
 
-            $image_file = 'https://www.liquag.com/dev/rail2/pri/tax3.jpg'; // Direct URL to the image
+            $image_file = 'https://www.grinpath.com/rail/pri/tax3.jpg'; // Direct URL to the image
             $this->Image($image_file, 10, 40, 190, '', 'JPG', '', 'T', false, 10, '', false, false, 0, false, false, false);
         }
 
