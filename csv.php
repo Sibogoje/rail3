@@ -191,33 +191,9 @@ include "header.php";
                             </div>
                         </div>
 
-                        <div class="date-range-row">
-                        <div class="date-range-item">
-                        <label for="total" class="" style="margin-top: 20px;">Number of Invoices</label>
-                        <input type="number" id="invoice_count" name="invoice_count" placeholder="Invoice Total" class="form-control" readonly>
-                        </div>
-                        <div class="date-range-item">
-                        <label for="balance" class="" style="margin-top: 20px;">Total Owed</label>
-                        <input type="number" id="t_owed" name="t_owed" placeholder="Total Owed" class="form-control" readonly>
-                        </div>
-                        </div>  
-                        
-                        <div class="date-range-row">
-                        <div class="date-range-item">
-                        <label for="pay" class="" style="margin-top: 20px;">Pay Amount</label>
-                        <input type="text" id="payment" name="payment" placeholder="Pay Here" class="form-control" pattern="[0-9]+(\.[0-9]{1,2})?" title="Enter a valid number with up to two decimal places">
-                        </div>
-                        
-                        <div class="date-range-item">
-                        <label for="surplus" class="" style="margin-top: 20px;">Balance After Paying</label>
-                         <input type="text" id="balance" name="balance" placeholder="Balance After Paying" class="form-control" readonly> 
-                        </div>
-                        </div>
-
-
          
             <div class="form-group">
-                    <input type="submit" class="btn btn-warning"  id="process" name="process" style="width: 100%;" value="Process Payment">
+                    <input type="submit" class="btn btn-warning"  id="process" name="process" style="width: 100%;" value="Export CSV">
             </div>
             
                            
