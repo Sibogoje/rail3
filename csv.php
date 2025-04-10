@@ -110,3 +110,62 @@ if (isset($_POST['export_csv'])) {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="file.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+<body>
+<?php include "header.php"; ?>
+
+<div class="container custom-container" style="margin-top: 20px;">
+    <h3>Invoice Payments</h3>
+    <form method="POST" action="">
+        <div class="form-group">
+            <label for="year">Year</label>
+            <select id="year" name="year" class="form-control">
+                <option value="">Select Year</option>
+                <?php for ($y = 2021; $y <= 2025; $y++): ?>
+                    <option value="<?php echo $y; ?>"><?php echo $y; ?></option>
+                <?php endfor; ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="month">Month</label>
+            <select id="month" name="month" class="form-control">
+                <option value="">Select Month</option>
+                <?php 
+                $months = [
+                    "January", "February", "March", "April", "May", 
+                    "June", "July", "August", "September", "October", 
+                    "November", "December"
+                ];
+                foreach ($months as $index => $month): ?>
+                    <option value="<?php echo $index + 1; ?>"><?php echo $month; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" name="export_csv" class="btn btn-success" style="width: 100%;">Export CSV</button>
+        </div>
+    </form>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
+</body>
+</html>
