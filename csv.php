@@ -75,21 +75,21 @@ if (isset($_POST['export_csv'])) {
     $query = "
         SELECT house_code AS `House Nr`, tenant AS `Occupant`, invoicenumber AS `Inv Number`, 
                month AS `Month`, 'Water' AS `Type`, water_charge AS `Amount`,
-               ROUND(water_charge , 2) AS `VAT`,
+               ROUND(water_charge * 0, 2) AS `VAT`,
                ROUND(water_charge , 2) AS `Amount Incl`
         FROM invoices
         WHERE water_charge > 0 AND year = ? AND month = ?
         UNION ALL
         SELECT house_code AS `House Nr`, tenant AS `Occupant`, invoicenumber AS `Inv Number`, 
                month AS `Month`, 'Electricity' AS `Type`, electricity_charge AS `Amount`,
-               ROUND(electricity_charge , 2) AS `VAT`,
+               ROUND(electricity_charge * 0 , 2) AS `VAT`,
                ROUND(electricity_charge , 2) AS `Amount Incl`
         FROM invoices
         WHERE electricity_charge > 0 AND year = ? AND month = ?
         UNION ALL
         SELECT house_code AS `House Nr`, tenant AS `Occupant`, invoicenumber AS `Inv Number`, 
                month AS `Month`, 'Sewage' AS `Type`, sewage_charge AS `Amount`,
-               ROUND(sewage_charge , 2) AS `VAT`,
+               ROUND(sewage_charge * 0, 2) AS `VAT`,
                ROUND(sewage_charge , 2) AS `Amount Incl`
         FROM invoices
         WHERE sewage_charge > 0 AND year = ? AND month = ? order by `Inv Number` ASC
