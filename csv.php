@@ -92,7 +92,7 @@ if (isset($_POST['export_csv'])) {
                ROUND(sewage_charge , 2) AS `VAT`,
                ROUND(sewage_charge , 2) AS `Amount Incl`
         FROM invoices
-        WHERE sewage_charge > 0 AND year = ? AND month = ?
+        WHERE sewage_charge > 0 AND year = ? AND month = ? order by `invoicenumber` ASC
     ";
 
     $stmt = $conn->prepare($query);
@@ -184,6 +184,10 @@ form .form-label {
     font-weight: 500;
     color: #555;
     margin-bottom: 5px;
+}
+
+form .form-select, form .btn-success {
+    margin-bottom: 15px; /* Add vertical spacing between elements */
 }
 
 form .form-select {
