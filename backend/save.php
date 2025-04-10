@@ -90,9 +90,9 @@ if ($res->num_rows > 0) {
             // Make sure $curr_sewage is set or retrieved
             if (isset($curr_sewage)) {
                 if ($curr_sewage <= 11.12) {
-                    $sewage_charge = 83.90;
+                    $sewage_charge = 87.26;
                 } else {
-                    $sewage_charge = (($curr_sewage - 11.12) * 13.73) + 83.90;
+                    $sewage_charge = (($curr_sewage - 11.12) * 14.28) + 87.26;
                     $sewage_charge = round($sewage_charge, 2);  // Round to 2 decimal places
                 }
             } else {
