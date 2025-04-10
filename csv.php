@@ -103,7 +103,7 @@ if (isset($_POST['export_csv'])) {
     if ($result->num_rows > 0) {
         // Set headers for CSV download
         header('Content-Type: text/csv');
-        header('Content-Disposition: attachment; filename="'$selectedYear' - '$selectedMonthName'.csv"');
+        header('Content-Disposition: attachment; filename=" '.$selectedYear.' - '.$selectedMonthName.'.csv"');
 
         // Open output stream
         $output = fopen('php://output', 'w');
