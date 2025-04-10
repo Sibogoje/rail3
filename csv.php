@@ -162,7 +162,12 @@ body {
 <body>
 <?php include "header.php"; ?>
 
-<div class="container custom-container" style="margin-top: 100px;">
+<div class="container custom-container" style="margin-top: 0px;">
+    <div class="row" style="margin-top: 100px;">
+        <div class="col-md-12">
+            <h2>Export Invoices to CSV</h2>
+            <p>Select the month and year for which you want to export the invoices.</p>
+        </div>
     <h3>Invoice Payments</h3>
     <form method="POST" action="">
         <div class="mb-3">
