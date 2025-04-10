@@ -157,7 +157,59 @@ body {
 * {
     box-sizing: border-box;
 }
-    </style>
+
+/* Modern form styling */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+form h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+form p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+form .form-label {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+form .form-select {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 14px;
+    color: #495057;
+}
+
+form .btn-success {
+    background-color: #198754;
+    border-color: #198754;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+form .btn-success:hover {
+    background-color: #157347;
+    border-color: #146c43;
+}
+</style>
 </head>
 <body>
 <?php include "header.php"; ?>
@@ -165,39 +217,39 @@ body {
 <div class="container custom-container" style="margin-top: 0px;">
     <div class="row" style="margin-top: 100px;">
         <div class="col-md-12">
-            <h2>Export Invoices to CSV</h2>
-            <p>Select the month and year for which you want to export the invoices.</p>
+            <form method="POST" action="">
+                <h2>Export Invoices to CSV</h2>
+                <p>Select the month and year for which you want to export the invoices.</p>
+                <div class="mb-3">
+                    <label for="year" class="form-label">Year</label>
+                    <select id="year" name="year" class="form-select">
+                        <option value="">Select Year</option>
+                        <?php for ($y = 2021; $y <= 2025; $y++): ?>
+                            <option value="<?php echo $y; ?>"><?php echo $y; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="month" class="form-label">Month</label>
+                    <select id="month" name="month" class="form-select">
+                        <option value="">Select Month</option>
+                        <?php 
+                        $months = [
+                            "January", "February", "March", "April", "May", 
+                            "June", "July", "August", "September", "October", 
+                            "November", "December"
+                        ];
+                        foreach ($months as $index => $month): ?>
+                            <option value="<?php echo $index + 1; ?>"><?php echo $month; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" name="export_csv" class="btn btn-success">Export CSV</button>
+                </div>
+            </form>
         </div>
-    <h3>Invoice Payments</h3>
-    <form method="POST" action="">
-        <div class="mb-3">
-            <label for="year" class="form-label">Year</label>
-            <select id="year" name="year" class="form-select">
-                <option value="">Select Year</option>
-                <?php for ($y = 2021; $y <= 2025; $y++): ?>
-                    <option value="<?php echo $y; ?>"><?php echo $y; ?></option>
-                <?php endfor; ?>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="month" class="form-label">Month</label>
-            <select id="month" name="month" class="form-select">
-                <option value="">Select Month</option>
-                <?php 
-                $months = [
-                    "January", "February", "March", "April", "May", 
-                    "June", "July", "August", "September", "October", 
-                    "November", "December"
-                ];
-                foreach ($months as $index => $month): ?>
-                    <option value="<?php echo $index + 1; ?>"><?php echo $month; ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <div class="d-grid">
-            <button type="submit" name="export_csv" class="btn btn-success">Export CSV</button>
-        </div>
-    </form>
+    </div>
 </div>
 
 <script>
