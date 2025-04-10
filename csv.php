@@ -142,6 +142,12 @@ if (isset($_POST['export_csv'])) {
         .header {
             margin-top: 0;
         }
+        body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #f8f9fa;
+}
     </style>
 </head>
 <body>
