@@ -28,7 +28,7 @@
             <li><a href="https://grinpath.com/rail/statement.php" class="list-group-item"><i class="fa fa-file"></i> Statements</a> </li>
 
             <li><a href="https://grinpath.com/rail/payment.php" class="list-group-item"><i class="fa fa-money"></i> Process Payments</a> </li>
-             <li><a href="https://grinpath.com/rail/bulkpayment.php" class="list-group-item"><i class="fa fa-money"></i> Bulk Payments</a> </li>
+             <li><a href="https://grinpath.com/rail/csv.php" class="list-group-item"><i class="fa fa-money"></i> Export CSV</a> </li>
               <li><a href="https://grinpath.com/rail/users.php" class="list-group-item"><i class="fa fa-money"></i> Users</a> </li>
 
            
