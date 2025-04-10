@@ -162,7 +162,7 @@ body {
 <body>
 <?php include "header.php"; ?>
 
-<div class="container custom-container" style="margin-top: 20px;">
+<div class="container custom-container" style="margin-top: 100px;">
     <h3>Invoice Payments</h3>
     <form method="POST" action="">
         <div class="mb-3">
