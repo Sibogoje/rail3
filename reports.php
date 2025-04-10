@@ -263,7 +263,7 @@ body {
                                 <select id="monthsrepo" name="monthsrepo[]" class="form-control select js-example-basic-multiple" style="width: 100%;" multiple="multiple" required>
                                     <option value="">Select Month</option>
                                     <?php
-                                    $result2 = mysqli_query($connect, "SELECT DISTINCT month FROM invoices WHERE year = '2025'");
+                                    $result2 = mysqli_query($connect, "SELECT DISTINCT month FROM invoices WHERE year = '2024'");
                                     while ($row = mysqli_fetch_array($result2)) {
                                         echo "<option value=" . $row['month'] . ">" . $row['month'] . "</option>";
                                     }
