@@ -130,23 +130,32 @@ if (isset($_POST['export_csv'])) {
     <title>CSV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="file.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <style>
-        .header {
-            margin-top: 0;
-        }
-        body {
+<link href="file.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Include Bootstrap Modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<style>
+body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     background-color: #f8f9fa;
+}
+* {
+    box-sizing: border-box;
 }
     </style>
 </head>
