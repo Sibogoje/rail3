@@ -155,14 +155,7 @@ include "header.php";
     <h3>Invoice Payments</h3>
        
         <form method="POST" action="bulkprocess.php" id="paymentform"  >
-                        <select id="company" name="company" class="form-control js-example-basic-single" required>
-                            <option value="">House</option>
-                            <?php
-                            $result2 = mysqli_query($conn,"SELECT distinct(house_code) as tenant  FROM  `invoices` order by house_code desc");
-                            while($row = mysqli_fetch_array($result2)) {
-                            echo "<option value=".$row['tenant'].">".$row['tenant']." </option>";
-                            }?>
-                        </select>
+                        
                         
                         <div class="date-range-row">
                             <div class="date-range-item">
