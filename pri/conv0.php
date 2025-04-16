@@ -426,6 +426,8 @@ $pdf->Ln(1);
 $pdf->SetFont('', 'B', 12);
 $pdf->Cell(0, 1, 'Water', 0, 1, 'L');
 
+
+$BASIC_CHARGE = number_format(97.63 * 1.04, 2);
 // Table 5
 $pdf->SetFont('', '', 9);
 $html = '<table cellspacing="2" width="100%" style="padding: 1px;  width: 100%;  ">';
