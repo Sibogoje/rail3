@@ -484,16 +484,17 @@ $html .= '<tr>
 <td style="border: 1px solid black;">'.$RATE_11_15.'</td>
 <td style="border: 1px solid black;">'.$B2Cal .'</td>
 </tr>';
-
+$RATE_16_50 = number_format(33.01 * 1.04, 2);
+$B3Cal = number_format($RATE_16_50 * $Unit3, 2)
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">34</td>
 <td style="border: 1px solid black; font-weight: bold;">B3(16-50)</td>
 <td style="border: 1px solid black;">'.$Unit3.'</td>
-<td style="border: 1px solid black;">'.$B3.'</td>
-<td style="border: 1px solid black;">33.01</td>
-<td style="border: 1px solid black;">33.01</td>
-<td style="border: 1px solid black;">'.$B3.'</td>
+<td style="border: 1px solid black;">'.$B3Cal.'</td>
+<td style="border: 1px solid black;">'.$RATE_16_50.'</td>
+<td style="border: 1px solid black;">'.$RATE_16_50.'</td>
+<td style="border: 1px solid black;">'.$B3Cal.'</td>
 </tr>';
 
 $html .= '<tr>
