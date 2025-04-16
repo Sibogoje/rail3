@@ -567,8 +567,8 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">Above 11.12</td>
 <td style="border: 1px solid black;">'.max(0, $curr_sewage - 11.12).'</td>
 <td style="border: 1px solid black;"></td>
-<td style="border: 1px solid black;">13.73</td>
-<td style="border: 1px solid black;">13.73</td>
+<td style="border: 1px solid black;">14.28</td>
+<td style="border: 1px solid black;">14.28</td>
 <td style="border: 1px solid black;">E  '.number_format($sewage_charge, 2).'</td>
 </tr>';
 
