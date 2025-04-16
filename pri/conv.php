@@ -420,6 +420,8 @@ $pdf->SetFont('', 'B', 12);
 $pdf->Cell(0, 1, 'Water', 0, 1, 'L');
 
 // Table 5
+$BASIC_CHARGE = number_format(97.63 * 1.04, 2);
+// Table 5
 $pdf->SetFont('', '', 9);
 $html = '<table cellspacing="2" width="100%" style="padding: 1px;  width: 100%;  ">';
 $html .= '<tr>
@@ -427,9 +429,9 @@ $html .= '<tr>
 <td style="width: 7%; border: 1px solid black;"></td>
 <td colspan="2" style="width: 28.58%; border: 1px solid black; font-weight: bold;">Basic Charge per Month</td>
 <td style="width: 14.28%; border: 1px solid black;">0</td>
-<td style="width: 14.28%; border: 1px solid black;">97.63</td>
-<td style="width: 14.28%; border: 1px solid black;">82.92</td>
-<td style="width: 14.32%; border: 1px solid black;">E 97.63</td>
+<td style="width: 14.28%; border: 1px solid black;">'.$BASIC_CHARGE.'</td>
+<td style="width: 14.28%; border: 1px solid black;">'.$BASIC_CHARGE.'</td>
+<td style="width: 14.32%; border: 1px solid black;">E '.$BASIC_CHARGE.'</td>
 </tr>';
 
 
@@ -454,57 +456,61 @@ $html .= '<tr>
 <td></td>
 <td></td>
 </tr>';
-
+$FLAT_RATE_1_10 = number_format(84.16 * 1.04, 2);
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
-<td style="border: 1px solid black;">'.$temp0.'</td>
+<td style="border: 1px solid black;">10</td>
 <td style="border: 1px solid black; font-weight: bold;">B1(1-10)</td>
 <td style="border: 1px solid black;">'.$Unit1.'</td>
-<td style="border: 1px solid black;">'.$B1.'</td>
-<td style="border: 1px solid black;">84.16</td>
-<td style="border: 1px solid black;">84.16</td>
-<td style="border: 1px solid black;">E '.$B1.'</td>
+<td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
+<td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
+<td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
+<td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
 </tr>';
-
+$RATE_11_15 = number_format(21.92 * 1.04, 2);
+$B2Cal =  number_format($RATE_11_15 * $Unit2, 2);
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
-<td style="border: 1px solid black;">'.$temp1.'</td>
+<td style="border: 1px solid black;">5</td>
 <td style="border: 1px solid black; font-weight: bold;">B2(11-15)</td>
 <td style="border: 1px solid black;">'.$Unit2.'</td>
-<td style="border: 1px solid black;">'.$B2.'</td>
-<td style="border: 1px solid black;">21.92</td>
-<td style="border: 1px solid black;">21.92</td>
-<td style="border: 1px solid black;">E '.$B2.'</td>
+<td style="border: 1px solid black;">'.$B2Cal.'</td>
+<td style="border: 1px solid black;">'.$RATE_11_15.'</td>
+<td style="border: 1px solid black;">'.$RATE_11_15.'</td>
+<td style="border: 1px solid black;">'.$B2Cal .'</td>
 </tr>';
-
+$RATE_16_50 = number_format(33.01 * 1.04, 2);
+$B3Cal = number_format($RATE_16_50 * $Unit3, 2);
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
-<td style="border: 1px solid black;">'.$temp2.'</td>
+<td style="border: 1px solid black;">34</td>
 <td style="border: 1px solid black; font-weight: bold;">B3(16-50)</td>
 <td style="border: 1px solid black;">'.$Unit3.'</td>
-<td style="border: 1px solid black;">'.$B3.'</td>
-<td style="border: 1px solid black;">33.01</td>
-<td style="border: 1px solid black;">33.01</td>
-<td style="border: 1px solid black;">E '.$B3.'</td>
+<td style="border: 1px solid black;">'.$B3Cal.'</td>
+<td style="border: 1px solid black;">'.$RATE_16_50.'</td>
+<td style="border: 1px solid black;">'.$RATE_16_50.'</td>
+<td style="border: 1px solid black;">'.$B3Cal.'</td>
 </tr>';
-
+$RATE_ABOVE_50 = number_format(37.67 * 1.04, 2);
+$B4Cal = number_format($RATE_ABOVE_50 * $Unit4, 2);
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">&gt;50</td>
 <td style="border: 1px solid black; font-weight: bold;">B4(&gt;50)</td>
 <td style="border: 1px solid black;">'.$Unit4.'</td>
-<td style="border: 1px solid black;">'.$charge.'</td>
-<td style="border: 1px solid black;">37.67</td>
-<td style="border: 1px solid black;">37.67</td>
-<td style="border: 1px solid black;">E '.$charge.'</td>
+<td style="border: 1px solid black;">'.$B4Cal.'</td>
+<td style="border: 1px solid black;">'.$RATE_ABOVE_50.'</td>
+<td style="border: 1px solid black;">'.$RATE_ABOVE_50.'</td>
+<td style="border: 1px solid black;">'.$B4Cal.'</td>
 </tr>';
+
 
 $html .= '<tr>
 <td colspan="6" style="border: none; font-weight: bold; font-size: 12px;"></td>
 
 
 <td style="border: 1px solid black; font-weight: bold; ">Subtotal</td>
-<td style="border: 1px solid black;">E '.$water_charge.'</td>
+<td style="border: 1px solid black;">'.$water_charge.'</td>
 </tr>';
 
 
