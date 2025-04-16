@@ -378,7 +378,7 @@ $pdf->Ln(1);
 $pdf->SetFont('', 'B', 12);
 $pdf->Cell(0, 1, 'Water', 0, 1, 'L');
 
-$BASIC_CHARGE = 97.63 * 1.04;
+$BASIC_CHARGE = format(97.63 * 1.04, 2); 
 
 // Table 5
 $pdf->SetFont('', '', 9);
