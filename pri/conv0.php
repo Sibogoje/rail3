@@ -57,29 +57,16 @@ while($rows = mysqli_fetch_array($result1)) {
 // Initialize counters for each band
 $band1 = $band2 = $band3 = $band4 = 0;
 
-
 // Determine the band based on w_units
 if ($w_units >= 0 && $w_units <= 10) {
-    $band1 = $w_units; // All units are in band 1   
-    $b1Charge = 87.52;
+    $band1 = $w_units; // All units are in band 1
 } elseif ($w_units >= 11 && $w_units <= 15) {
     $band2 = $w_units - 10; // Units in band 2
-    $Band2_unit_Charge = 21.92 * 1.04;
-    $b2Charge = $band2 * $Band2_unit_Charge;
 } elseif ($w_units >= 16 && $w_units <= 50) {
     $band3 = $w_units - 15; // Units in band 3
-    $Band3_unit_Charge = 33.01 * 1.04;
-    $b3Charge = $band3 * $Band3_unit_Charge;
 } elseif ($w_units > 50) {
     $band4 = $w_units - 50; // Units in band 4
-    $Band4_unit_Charge = 37.67 * 1.04;
-    $b4Charge = $band4 *  $Band4_unit_Charge;
-}
-
-$B1= 87.52;
-$B2= 21.92 * 1.04;
-$B3= 33.01 * 1.04;
-$B4= 37.67 * 1.04;
+}						  
 						   
 $B1 = $B2 = $B3 = $B4 = 0.0;
 $SB1 = $SB2 = $SB3 = $SB4 = 0.0;
@@ -91,6 +78,61 @@ $Unit1 = $Unit2  = $Unit3 = $Unit4 = 0;
 $Unit = 0;
 $subtotal = 0;
 
+if ($w_units < 11) {
+    $B1 = 84.16;
+    $subtotal = $B1 + 97.63;
+    if ($w_units > 0) {
+    $Unit1 = min(10, $w_units);
+}
+} elseif ($w_units < 16) {
+    $temp0 = 10;
+    $B1 = 84.16;
+    $RR = $w_units;
+    $temp1 = $RR - $temp0;
+    $B2 = $temp1 * 21.92; 
+    $subtotal = $B1 + $B2 + 97.63;
+    if ($w_units > 10) {
+        $Unit1 = 10;
+    $Unit2 = min(5, $w_units - 10);
+}
+} elseif ($w_units < 51) {
+    $temp0 = 10;
+    $B1 = 84.16;
+    $temp1 = 5;
+    $B2 = $temp1 * 21.92;
+    $temp2 = $w_units - 15;
+    $B3 = $temp2 * 33.01; 
+    $RR = $w_units;
+    $RR = $RR - $temp0;
+    $RR = $RR - $temp1;
+    $subtotal = $B1 + $B2 + $B3 + 97.63;
+    if ($w_units > 15) {
+        $Unit1 = 10;
+        $Unit2 = 5;
+    $Unit3 = min(35, $w_units - 15);
+}
+} elseif ($w_units >= 51) {
+    $temp0 = 10;
+    $B1 = 84.16;
+    $temp1 = 5;
+    $B2 = $temp1 * 21.92;
+    $temp2 = 35;
+    $B3 = $temp2 * 33.01; 
+    $RR = $w_units;
+    $RR = $RR - $temp0;
+    $RR = $RR - $temp1;
+    $RR = $RR - $temp2;
+    $subtotal = $B1 + $B2 + $B3 + $RR * 37.67 + 97.63;
+    
+    if ($w_units > 50) {
+        $Unit1 = 10;
+        $Unit2 = 5;
+        $Unit3 = 35;
+    $Unit4 = $w_units - 50;
+    $charge = $Unit4 * 37.67;
+    
+}
+}
 
 
 $total = $subtotal + $w;
@@ -384,8 +426,6 @@ $pdf->Ln(1);
 $pdf->SetFont('', 'B', 12);
 $pdf->Cell(0, 1, 'Water', 0, 1, 'L');
 
-$BASIC_CHARGE = number_format(97.63 * 1.04, 2, '.', ''); // number_format($BASIC_CHARGE, 2, '.', '');
-
 // Table 5
 $pdf->SetFont('', '', 9);
 $html = '<table cellspacing="2" width="100%" style="padding: 1px;  width: 100%;  ">';
@@ -394,9 +434,9 @@ $html .= '<tr>
 <td style="width: 7%; border: 1px solid black;"></td>
 <td colspan="2" style="width: 28.58%; border: 1px solid black; font-weight: bold;">Basic Charge per Month</td>
 <td style="width: 14.28%; border: 1px solid black;">0</td>
-<td style="width: 14.28%; border: 1px solid black;">'.$BASIC_CHARGE.'</td>
-<td style="width: 14.28%; border: 1px solid black;">'.$BASIC_CHARGE.'</td>
-<td style="width: 14.32%; border: 1px solid black;">E '.$BASIC_CHARGE.'</td>
+<td style="width: 14.28%; border: 1px solid black;">97.63</td>
+<td style="width: 14.28%; border: 1px solid black;">82.92</td>
+<td style="width: 14.32%; border: 1px solid black;">E 97.63</td>
 </tr>';
 
 
@@ -426,44 +466,44 @@ $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">10</td>
 <td style="border: 1px solid black; font-weight: bold;">B1(1-10)</td>
-<td style="border: 1px solid black;">'.$band1.'</td>
-<td style="border: 1px solid black;">'.$b1Charge.'</td>
-<td style="border: 1px solid black;">'.$b1Charge.'</td>
-<td style="border: 1px solid black;">'.$b1Charge.'</td>
-<td style="border: 1px solid black;">'.$b1Charge.'</td>
+<td style="border: 1px solid black;">'.$Unit1.'</td>
+<td style="border: 1px solid black;">'.$B1.'</td>
+<td style="border: 1px solid black;">84.16</td>
+<td style="border: 1px solid black;">84.16</td>
+<td style="border: 1px solid black;">'.$B1.'</td>
 </tr>';
 
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">5</td>
 <td style="border: 1px solid black; font-weight: bold;">B2(11-15)</td>
-<td style="border: 1px solid black;">'.$band2.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
-<td style="border: 1px solid black;">'.$Band2_unit_Charge.'</td>
-<td style="border: 1px solid black;">'.$Band2_unit_Charge.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
+<td style="border: 1px solid black;">'.$Unit2.'</td>
+<td style="border: 1px solid black;">'.$B2.'</td>
+<td style="border: 1px solid black;">21.92</td>
+<td style="border: 1px solid black;">21.92</td>
+<td style="border: 1px solid black;">'.$B2.'</td>
 </tr>';
 
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">34</td>
 <td style="border: 1px solid black; font-weight: bold;">B3(16-50)</td>
-<td style="border: 1px solid black;">'.$band3.'</td>
-<td style="border: 1px solid black;">'.$b3Charge.'</td>
-<td style="border: 1px solid black;">'.$Band3_unit_Charge.'</td>
-<td style="border: 1px solid black;">'.$Band3_unit_Charge.'</td>
-<td style="border: 1px solid black;">'.$b3Charge.'</td>
+<td style="border: 1px solid black;">'.$Unit3.'</td>
+<td style="border: 1px solid black;">'.$B3.'</td>
+<td style="border: 1px solid black;">33.01</td>
+<td style="border: 1px solid black;">33.01</td>
+<td style="border: 1px solid black;">'.$B3.'</td>
 </tr>';
 
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">&gt;50</td>
 <td style="border: 1px solid black; font-weight: bold;">B4(&gt;50)</td>
-<td style="border: 1px solid black;">'.$band4.'</td>
-<td style="border: 1px solid black;">'.$b4Charge.'</td>
-<td style="border: 1px solid black;">'.$Band4_unit_Charge.'</td>
-<td style="border: 1px solid black;">'.$Band4_unit_Charge.'</td>
-<td style="border: 1px solid black;">'.$b4Charge.'</td>
+<td style="border: 1px solid black;">'.$Unit4.'</td>
+<td style="border: 1px solid black;">'.$charge.'</td>
+<td style="border: 1px solid black;">37.67</td>
+<td style="border: 1px solid black;">37.67</td>
+<td style="border: 1px solid black;">'.$charge.'</td>
 </tr>';
 
 
