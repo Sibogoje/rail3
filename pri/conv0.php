@@ -467,10 +467,10 @@ $html .= '<tr>
 <td style="border: 1px solid black;">10</td>
 <td style="border: 1px solid black; font-weight: bold;">B1(1-10)</td>
 <td style="border: 1px solid black;">'.$Unit1.'</td>
-<td style="border: 1px solid black;">'.$B1.'</td>
 <td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
 <td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
-<td style="border: 1px solid black;">'.$B1.'</td>
+<td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
+<td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
 </tr>';
 
 $html .= '<tr>
