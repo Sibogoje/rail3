@@ -64,13 +64,16 @@ if ($w_units >= 0 && $w_units <= 10) {
     $b1Charge = 87.52;
 } elseif ($w_units >= 11 && $w_units <= 15) {
     $band2 = $w_units - 10; // Units in band 2
-    $b2Charge = $band2 * 21.92 * 1.04;
+    $Band2_unit_Charge = 21.92 * 1.04;
+    $b2Charge = $band2 * $Band2_unit_Charge;
 } elseif ($w_units >= 16 && $w_units <= 50) {
     $band3 = $w_units - 15; // Units in band 3
-    $b3Charge = $band3 * 33.01 * 1.04;
+    $Band3_unit_Charge = 33.01 * 1.04;
+    $b3Charge = $band3 * $Band3_unit_Charge;
 } elseif ($w_units > 50) {
     $band4 = $w_units - 50; // Units in band 4
-    $b4Charge = $band4 * 37.67 * 1.04;
+    $Band4_unit_Charge = 37.67 * 1.04;
+    $b4Charge = $band4 *  $Band4_unit_Charge;
 }
 
 $B1= 87.52;
@@ -436,8 +439,8 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">B2(11-15)</td>
 <td style="border: 1px solid black;">'.$band2.'</td>
 <td style="border: 1px solid black;">'.$b2Charge.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
+<td style="border: 1px solid black;">'.$Band2_unit_Charge.'</td>
+<td style="border: 1px solid black;">'.$Band2_unit_Charge.'</td>
 <td style="border: 1px solid black;">'.$b2Charge.'</td>
 </tr>';
 
@@ -447,9 +450,9 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">B3(16-50)</td>
 <td style="border: 1px solid black;">'.$band3.'</td>
 <td style="border: 1px solid black;">'.$b2Charge.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
+<td style="border: 1px solid black;">'.$Band3_unit_Charge.'</td>
+<td style="border: 1px solid black;">'.$Band3_unit_Charge.'</td>
+<td style="border: 1px solid black;">'.$b3Charge.'</td>
 </tr>';
 
 $html .= '<tr>
@@ -458,9 +461,9 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">B4(&gt;50)</td>
 <td style="border: 1px solid black;">'.$band4.'</td>
 <td style="border: 1px solid black;">'.$b2Charge.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
-<td style="border: 1px solid black;">'.$b2Charge.'</td>
+<td style="border: 1px solid black;">'.$Band4_unit_Charge.'</td>
+<td style="border: 1px solid black;">'.$Band4_unit_Charge.'</td>
+<td style="border: 1px solid black;">'.$b4Charge.'</td>
 </tr>';
 
 
