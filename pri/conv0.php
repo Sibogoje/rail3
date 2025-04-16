@@ -61,7 +61,7 @@ $band1 = $band2 = $band3 = $band4 = 0;
 if ($w_units >= 0 && $w_units <= 10) {
     $band1 = $w_units; // All units are in band 1
     
-    $b1Charge = 101.54;
+    $b1Charge = 87.52;
 } elseif ($w_units >= 11 && $w_units <= 15) {
     $band2 = $w_units - 10; // Units in band 2
 } elseif ($w_units >= 16 && $w_units <= 50) {
@@ -420,8 +420,8 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">B1(1-10)</td>
 <td style="border: 1px solid black;">'.$band1.'</td>
 <td style="border: 1px solid black;">'.$b1Charge.'</td>
-<td style="border: 1px solid black;">'.$band1.'</td>
-<td style="border: 1px solid black;">'.$band1.'</td>
+<td style="border: 1px solid black;">'.$b1Charge.'</td>
+<td style="border: 1px solid black;">'.$b1Charge.'</td>
 <td style="border: 1px solid black;">'.$b1Charge.'</td>
 </tr>';
 
