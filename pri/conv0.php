@@ -56,13 +56,12 @@ while($rows = mysqli_fetch_array($result1)) {
 						   
 // Initialize counters for each band
 $band1 = $band2 = $band3 = $band4 = 0;
-$B1= 87.52;
-$B2= 21.92 * 1.04;
-$B3= 33.01 * 1.04;
-$B4= 37.67 * 1.04;
+
 // Determine the band based on w_units
 if ($w_units >= 0 && $w_units <= 10) {
     $band1 = $w_units; // All units are in band 1
+    
+    $b1Charge = 101.54;
 } elseif ($w_units >= 11 && $w_units <= 15) {
     $band2 = $w_units - 10; // Units in band 2
 } elseif ($w_units >= 16 && $w_units <= 50) {
@@ -71,8 +70,17 @@ if ($w_units >= 0 && $w_units <= 10) {
     $band4 = $w_units - 50; // Units in band 4
 }
 
+$B1= 87.52;
+$B2= 21.92 * 1.04;
+$B3= 33.01 * 1.04;
+$B4= 37.67 * 1.04;
+						   
+$B1 = $B2 = $B3 = $B4 = 0.0;
+$SB1 = $SB2 = $SB3 = $SB4 = 0.0;
+$temp0 = $temp1 = $temp2 = $temp3 = 0;
+$tempa0 = $tempa1 = $tempa2 = $tempa3 = 0;
+$w = $vw = $bn = 0.0;
 
-			
 $Unit1 = $Unit2  = $Unit3 = $Unit4 = 0;	
 $Unit = 0;
 $subtotal = 0;
@@ -412,8 +420,8 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">B1(1-10)</td>
 <td style="border: 1px solid black;">'.$Unit1.'</td>
 <td style="border: 1px solid black;">'.$B1.'</td>
-<td style="border: 1px solid black;">'.$B1'</td>
-<td style="border: 1px solid black;">'.$B1'</td>
+<td style="border: 1px solid black;">84.16</td>
+<td style="border: 1px solid black;">84.16</td>
 <td style="border: 1px solid black;">'.$B1.'</td>
 </tr>';
 
@@ -423,8 +431,8 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">B2(11-15)</td>
 <td style="border: 1px solid black;">'.$Unit2.'</td>
 <td style="border: 1px solid black;">'.$B2.'</td>
-<td style="border: 1px solid black;">'.$B2.'</td>
-<td style="border: 1px solid black;">'.$B2.'</td>
+<td style="border: 1px solid black;">21.92</td>
+<td style="border: 1px solid black;">21.92</td>
 <td style="border: 1px solid black;">'.$B2.'</td>
 </tr>';
 
@@ -434,8 +442,8 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">B3(16-50)</td>
 <td style="border: 1px solid black;">'.$Unit3.'</td>
 <td style="border: 1px solid black;">'.$B3.'</td>
-<td style="border: 1px solid black;">'.$B3.'</td>
-<td style="border: 1px solid black;">'.$B3.'</td>
+<td style="border: 1px solid black;">33.01</td>
+<td style="border: 1px solid black;">33.01</td>
 <td style="border: 1px solid black;">'.$B3.'</td>
 </tr>';
 
@@ -445,8 +453,8 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">B4(&gt;50)</td>
 <td style="border: 1px solid black;">'.$Unit4.'</td>
 <td style="border: 1px solid black;">'.$charge.'</td>
-<td style="border: 1px solid black;">'.$B4.'</td>
-<td style="border: 1px solid black;">'.$B4.'</td>
+<td style="border: 1px solid black;">37.67</td>
+<td style="border: 1px solid black;">37.67</td>
 <td style="border: 1px solid black;">'.$charge.'</td>
 </tr>';
 
