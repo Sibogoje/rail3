@@ -473,12 +473,13 @@ $html .= '<tr>
 <td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
 </tr>';
 $RATE_11_15 = number_format(21.92 * 1.04, 2);
+$B2Cal =  $RATE_11_15 * $Unit2;
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">5</td>
 <td style="border: 1px solid black; font-weight: bold;">B2(11-15)</td>
 <td style="border: 1px solid black;">'.$Unit2.'</td>
-<td style="border: 1px solid black;">'.$B2.'</td>
+<td style="border: 1px solid black;">'.$B2Cal.'</td>
 <td style="border: 1px solid black;">'.$RATE_11_15.'</td>
 <td style="border: 1px solid black;">'.$RATE_11_15.'</td>
 <td style="border: 1px solid black;">'.$B2.'</td>
