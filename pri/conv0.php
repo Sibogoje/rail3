@@ -461,7 +461,7 @@ $html .= '<tr>
 <td></td>
 <td></td>
 </tr>';
-$FLAT_RATE_1_10 = 84.16 * 1.04;
+$FLAT_RATE_1_10 = round(84.16 * 1.04, 2);
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">10</td>
