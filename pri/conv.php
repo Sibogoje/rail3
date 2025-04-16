@@ -602,8 +602,8 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;"></td>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">'.$vw.'</td>
-<td style="border: 1px solid black;">2.384</td>
-<td style="border: 1px solid black;">E2.384</td>
+<td style="border: 1px solid black;">2.574</td>
+<td style="border: 1px solid black;">E2.574</td>
 <td style="border: 1px solid black;">E  '.$vw.'</td>
 </tr>';
 
