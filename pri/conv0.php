@@ -485,7 +485,7 @@ $html .= '<tr>
 <td style="border: 1px solid black;">'.$B2Cal .'</td>
 </tr>';
 $RATE_16_50 = number_format(33.01 * 1.04, 2);
-$B3Cal = number_format($RATE_16_50 * $Unit3, 2)
+$B3Cal = number_format($RATE_16_50 * $Unit3, 2);
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">34</td>
