@@ -78,61 +78,61 @@ $Unit1 = $Unit2  = $Unit3 = $Unit4 = 0;
 $Unit = 0;
 $subtotal = 0;
 
-if ($w_units < 11) {
-    $B1 = 84.16;
-    $subtotal = $B1 + 97.63;
-    if ($w_units > 0) {
-    $Unit1 = min(10, $w_units);
-}
-} elseif ($w_units < 16) {
-    $temp0 = 10;
-    $B1 = 84.16;
-    $RR = $w_units;
-    $temp1 = $RR - $temp0;
-    $B2 = $temp1 * 21.92; 
-    $subtotal = $B1 + $B2 + 97.63;
-    if ($w_units > 10) {
-        $Unit1 = 10;
-    $Unit2 = min(5, $w_units - 10);
-}
-} elseif ($w_units < 51) {
-    $temp0 = 10;
-    $B1 = 84.16;
-    $temp1 = 5;
-    $B2 = $temp1 * 21.92;
-    $temp2 = $w_units - 15;
-    $B3 = $temp2 * 33.01; 
-    $RR = $w_units;
-    $RR = $RR - $temp0;
-    $RR = $RR - $temp1;
-    $subtotal = $B1 + $B2 + $B3 + 97.63;
-    if ($w_units > 15) {
-        $Unit1 = 10;
-        $Unit2 = 5;
-    $Unit3 = min(35, $w_units - 15);
-}
-} elseif ($w_units >= 51) {
-    $temp0 = 10;
-    $B1 = 84.16;
-    $temp1 = 5;
-    $B2 = $temp1 * 21.92;
-    $temp2 = 35;
-    $B3 = $temp2 * 33.01; 
-    $RR = $w_units;
-    $RR = $RR - $temp0;
-    $RR = $RR - $temp1;
-    $RR = $RR - $temp2;
-    $subtotal = $B1 + $B2 + $B3 + $RR * 37.67 + 97.63;
+// if ($w_units < 11) {
+//     $B1 = 84.16;
+//     $subtotal = $B1 + 97.63;
+//     if ($w_units > 0) {
+//     $Unit1 = min(10, $w_units);
+// }
+// } elseif ($w_units < 16) {
+//     $temp0 = 10;
+//     $B1 = 84.16;
+//     $RR = $w_units;
+//     $temp1 = $RR - $temp0;
+//     $B2 = $temp1 * 21.92; 
+//     $subtotal = $B1 + $B2 + 97.63;
+//     if ($w_units > 10) {
+//         $Unit1 = 10;
+//     $Unit2 = min(5, $w_units - 10);
+// }
+// } elseif ($w_units < 51) {
+//     $temp0 = 10;
+//     $B1 = 84.16;
+//     $temp1 = 5;
+//     $B2 = $temp1 * 21.92;
+//     $temp2 = $w_units - 15;
+//     $B3 = $temp2 * 33.01; 
+//     $RR = $w_units;
+//     $RR = $RR - $temp0;
+//     $RR = $RR - $temp1;
+//     $subtotal = $B1 + $B2 + $B3 + 97.63;
+//     if ($w_units > 15) {
+//         $Unit1 = 10;
+//         $Unit2 = 5;
+//     $Unit3 = min(35, $w_units - 15);
+// }
+// } elseif ($w_units >= 51) {
+//     $temp0 = 10;
+//     $B1 = 84.16;
+//     $temp1 = 5;
+//     $B2 = $temp1 * 21.92;
+//     $temp2 = 35;
+//     $B3 = $temp2 * 33.01; 
+//     $RR = $w_units;
+//     $RR = $RR - $temp0;
+//     $RR = $RR - $temp1;
+//     $RR = $RR - $temp2;
+//     $subtotal = $B1 + $B2 + $B3 + $RR * 37.67 + 97.63;
     
-    if ($w_units > 50) {
-        $Unit1 = 10;
-        $Unit2 = 5;
-        $Unit3 = 35;
-    $Unit4 = $w_units - 50;
-    $charge = $Unit4 * 37.67;
+//     if ($w_units > 50) {
+//         $Unit1 = 10;
+//         $Unit2 = 5;
+//         $Unit3 = 35;
+//     $Unit4 = $w_units - 50;
+//     $charge = $Unit4 * 37.67;
     
-}
-}
+// }
+// }
 
 
 $total = $subtotal + $w;
