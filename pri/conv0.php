@@ -555,7 +555,7 @@ $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;"></td>
-<td style="border: 1px solid black;">E  80.68</td>
+<td style="border: 1px solid black;">E  87.26</td>
 </tr>';
 
 

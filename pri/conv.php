@@ -518,8 +518,8 @@ $html .= '<tr>
 <td colspan="2" style="width: 28.58%; border: 1px solid black; font-weight: bold;">Basic Charge per Month</td>
 <td style="width: 14.28%; border: 1px solid black;">0</td>
 <td style="width: 14.28%; border: 1px solid black;">0</td>
-<td style="width: 14.28%; border: 1px solid black;">13.73</td>
-<td style="width: 14.32%; border: 1px solid black;">E 83.90</td>
+<td style="width: 14.28%; border: 1px solid black;">14.28</td>
+<td style="width: 14.32%; border: 1px solid black;">E 87.26</td>
 </tr>';
 
 $html .= '<tr>
@@ -541,7 +541,7 @@ $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;"></td>
-<td style="border: 1px solid black;">E  83.90</td>
+<td style="border: 1px solid black;">E  87.26</td>
 </tr>';
 
 
@@ -553,17 +553,16 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">Above 11.12</td>
 <td style="border: 1px solid black;">'.max(0, $curr_sewage - 11.12).'</td>
 <td style="border: 1px solid black;"></td>
-<td style="border: 1px solid black;">13.73</td>
-<td style="border: 1px solid black;">13.73</td>
-<td style="border: 1px solid black;">E  '.number_format(max(0, $curr_sewage - 11.12) * 13.73, 2).'</td>
+<td style="border: 1px solid black;">14.28</td>
+<td style="border: 1px solid black;">14.28</td>
+<td style="border: 1px solid black;">E  '.number_format($sewage_charge, 2).'</td>
 </tr>';
 
 $html .= '<tr>
 <td colspan="6" style="border: none;"></td>
 <td style="border: 1px solid black; font-weight: bold;">Subtotal</td>
-<td style="border: 1px solid black;">E  '.$sewage_charge.'</td>
+<td style="border: 1px solid black;">E  '.number_format($sewage_charge, 2).'</td>
 </tr>';
-
 
 $html .= '<tr>
 <td colspan="8" style="border: none;"></td>
