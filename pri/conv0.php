@@ -434,9 +434,9 @@ $html .= '<tr>
 <td style="width: 7%; border: 1px solid black;"></td>
 <td colspan="2" style="width: 28.58%; border: 1px solid black; font-weight: bold;">Basic Charge per Month</td>
 <td style="width: 14.28%; border: 1px solid black;">0</td>
-<td style="width: 14.28%; border: 1px solid black;">97.63</td>
-<td style="width: 14.28%; border: 1px solid black;">82.92</td>
-<td style="width: 14.32%; border: 1px solid black;">E 97.63</td>
+<td style="width: 14.28%; border: 1px solid black;">'.$BASIC_CHARGE.'</td>
+<td style="width: 14.28%; border: 1px solid black;">'.$BASIC_CHARGE.'</td>
+<td style="width: 14.32%; border: 1px solid black;">E '.$BASIC_CHARGE.'</td>
 </tr>';
 
 
