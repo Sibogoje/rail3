@@ -461,7 +461,7 @@ $html .= '<tr>
 <td></td>
 <td></td>
 </tr>';
-$FLAT_RATE_1_10 = round(84.16 * 1.04, 2);
+$FLAT_RATE_1_10 = number_format(84.16 * 1.04, 2);
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">10</td>
@@ -472,7 +472,7 @@ $html .= '<tr>
 <td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
 <td style="border: 1px solid black;">'.$FLAT_RATE_1_10.'</td>
 </tr>';
-$RATE_11_15 = round(21.92 * 1.04, 2);
+$RATE_11_15 = number_format(21.92 * 1.04, 2);
 $html .= '<tr>
 <td style="border: 1px solid black;"></td>
 <td style="border: 1px solid black;">5</td>
