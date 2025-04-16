@@ -419,10 +419,10 @@ $html .= '<tr>
 <td style="border: 1px solid black;">10</td>
 <td style="border: 1px solid black; font-weight: bold;">B1(1-10)</td>
 <td style="border: 1px solid black;">'.$band1.'</td>
-<td style="border: 1px solid black;">'.$B1.'</td>
-<td style="border: 1px solid black;">84.16</td>
-<td style="border: 1px solid black;">84.16</td>
-<td style="border: 1px solid black;">'.$B1.'</td>
+<td style="border: 1px solid black;">'.$b1Charge.'</td>
+<td style="border: 1px solid black;">'.$band1.'</td>
+<td style="border: 1px solid black;">'.$band1.'</td>
+<td style="border: 1px solid black;">'.$b1Charge.'</td>
 </tr>';
 
 $html .= '<tr>
