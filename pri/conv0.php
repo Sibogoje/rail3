@@ -532,8 +532,8 @@ $html .= '<tr>
 <td colspan="2" style="width: 28.58%; border: 1px solid black; font-weight: bold;">Basic Charge per Month</td>
 <td style="width: 14.28%; border: 1px solid black;">0</td>
 <td style="width: 14.28%; border: 1px solid black;">0</td>
-<td style="width: 14.28%; border: 1px solid black;">13.73</td>
-<td style="width: 14.32%; border: 1px solid black;">E 80.68</td>
+<td style="width: 14.28%; border: 1px solid black;">14.28</td>
+<td style="width: 14.32%; border: 1px solid black;">E 87.26</td>
 </tr>';
 
 $html .= '<tr>
