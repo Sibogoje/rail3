@@ -137,6 +137,10 @@ if ($w_units < 11) {
 
 $total = $subtotal + $w;
 
+$B1 = number_format($B1, 2);
+$B2 = number_format(22.80, 2);    
+$B3 = number_format(34.33, 2);
+$B4 = number_format(40.74, 2);
 
 
 $monthDays = [
@@ -434,9 +438,9 @@ $html .= '<tr>
 <td style="width: 7%; border: 1px solid black;"></td>
 <td colspan="2" style="width: 28.58%; border: 1px solid black; font-weight: bold;">Basic Charge per Month</td>
 <td style="width: 14.28%; border: 1px solid black;">0</td>
-<td style="width: 14.28%; border: 1px solid black;">97.63</td>
+<td style="width: 14.28%; border: 1px solid black;">101.53</td>
 <td style="width: 14.28%; border: 1px solid black;">82.92</td>
-<td style="width: 14.32%; border: 1px solid black;">E 97.63</td>
+<td style="width: 14.32%; border: 1px solid black;">E 101.53</td>
 </tr>';
 
 
@@ -468,8 +472,8 @@ $html .= '<tr>
 <td style="border: 1px solid black; font-weight: bold;">B1(1-10)</td>
 <td style="border: 1px solid black;">'.$Unit1.'</td>
 <td style="border: 1px solid black;">'.$B1.'</td>
-<td style="border: 1px solid black;">84.16</td>
-<td style="border: 1px solid black;">84.16</td>
+<td style="border: 1px solid black;">87.52</td>
+<td style="border: 1px solid black;">87.52</td>
 <td style="border: 1px solid black;">'.$B1.'</td>
 </tr>';
 
